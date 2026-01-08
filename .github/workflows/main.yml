@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Give execute permission to script
-        run: chmod +x install_npm.sh
+      - name: Give execute permission
+        run: chmod +x .github/workflows/install_npm.sh
 
       - name: Run npm install script
-        run: ./install_npm.sh
+        run: ./.github/workflows/install_npm.sh
