@@ -1,0 +1,13 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.clip-list-container {
+    overflow: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid $evolon-blue;
+    border-radius: 20px;
+    .list{
+        width: 100%;
+    }
+}

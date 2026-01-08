@@ -1,0 +1,20 @@
+@use '../../../../abstracts/colors' as *;
+
+.EdgeLogsModal {
+    max-width: none;
+    width: calc(100% - 2rem);
+
+    .logsContainer {
+        .log {
+            font-family: monospace, monospace;
+            margin: 0;
+        }
+
+        .logActionsContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+}

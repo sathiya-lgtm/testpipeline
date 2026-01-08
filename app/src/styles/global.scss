@@ -1,0 +1,128 @@
+@use './abstracts/colors' as *;
+
+/* ___________________ FONTS ____________________________ */
+
+@font-face {
+    font-family: thin;
+    src: url('../fonts/Montserrat/Montserrat-Thin.ttf');
+}
+
+@font-face {
+    font-family: light;
+    src: url('../fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: regular;
+    src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: medium;
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: semi-bold;
+    src: url('../fonts/Montserrat/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: bold;
+    src: url('../fonts/Montserrat/Montserrat-ExtraBold.ttf');
+}
+
+/* ___________________ ELEMENTS ____________________________ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: regular;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    background: $graphite;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.no-scroll-gutter {
+    scrollbar-gutter: auto !important;
+}
+
+.App {
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: background-color 1s linear, background-image 1s linear;
+}
+
+.icon {
+    fill: $slate;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.no-pointer {
+    cursor: auto !important;
+}
+
+// Applies to calendar icon for date input in Chromium browsers and only some older versions of Firefox
+::-webkit-calendar-picker-indicator {
+    cursor: pointer !important;
+}
+
+.card {
+    box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.highlight-blue {
+    color: $highlight-blue;
+}
+
+.highlight-red {
+    // background: $evolon-red;
+    color: $highlight-red;
+}
+
+.stroke0 {
+    fill: #65bd7e;
+}
+.stroke1 {
+    fill: #ffffff;
+}
+.stroke2 {
+    display: none;
+    fill: #ffffff;
+}
+
+.insites-logo-about-modal {
+    height: 30px;
+}
+
+.text-secondary {
+    color: $text-secondary;
+}

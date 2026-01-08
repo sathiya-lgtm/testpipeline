@@ -1,0 +1,32 @@
+@use '../../../styles/abstracts/colors' as *;
+
+$toolbar-height: 50px;
+$toolbar-button-height: 50px;
+$toolbar-button-width: 50px;
+
+.toolbar {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    font-size: 1.4em;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: $toolbar-height;
+    color: $slate;
+}
+
+.toolbar-button {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: $toolbar-button-width;
+    height: $toolbar-button-height;
+
+    &:hover {
+        cursor: pointer;
+        color: white;
+    }
+}

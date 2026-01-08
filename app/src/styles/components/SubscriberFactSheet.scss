@@ -1,0 +1,220 @@
+@use '../abstracts/colors' as *;
+
+.EditSubscriberFactSheetModal {
+    max-width: 1000px;
+    max-height: calc(100% - 130px);
+
+    .radioGroup {
+        margin: 5px 0px 25px 5px;
+
+        label {
+            padding: 0px !important;
+        }
+
+        .radioBtn {
+            margin-bottom: 15px;
+        }
+
+        .radioBtn label.disabled {
+            opacity: 0.5;
+        }
+
+        .radioBtn input[type='radio']:checked + label::after {
+            transform: translateY(-50%) scale(0.5);
+        }
+    }
+
+    .factsheet-note {
+        color: #e65454;
+    }
+}
+
+.videoSystemType {
+    display: flex;
+    gap: 25px;
+    margin: 5px 0px 25px 5px;
+    padding: 5px 0px;
+
+    .checkbox-input {
+        transform: scale(1.5);
+    }
+
+    .checkbox-label {
+        padding-left: 10px;
+    }
+}
+.security_department_info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    // margin-bottom: 20px;
+    // border: solid 1pt #6a737b;
+    // padding: 20px;
+    // border-radius: 5px;
+    // margin-top: 5px;
+}
+
+.report-options {
+    margin-bottom: 20px;
+}
+
+.checkbox-spacing {
+    padding-bottom: 10px;
+
+    .checkbox-label {
+        padding-left: 10px;
+    }
+
+    input {
+        transform: scale(1.5);
+    }
+}
+
+.timeSelectsContainer .reportEmail {
+    justify-content: flex-start;
+}
+
+// .dealer_info {
+//     margin-top: 20px;
+//     border: solid 1pt #6a737b;
+//     border-radius: 10px;
+//     padding: 20px;
+// }
+
+.camera-details-section,
+.audio-horn-details-section {
+    position: relative;
+    padding-bottom: 10px;
+    // max-height: calc(-600px + 100vh);
+    // min-height: 500px;
+    overflow: auto;
+}
+
+.camera-details-table,
+.audio-horn-details-table {
+    width: 100%;
+    // border-collapse: collapse;
+    overflow: auto;
+
+    thead {
+        // background-color: rgb(43, 49, 49);
+        background-color: rgb(71 73 73);
+        margin-bottom: 15px;
+
+        th {
+            position: relative;
+            // color: rgb(106, 115, 123);
+            text-align: center;
+            pointer-events: none;
+            padding: 0.75rem 1.5rem;
+        }
+    }
+
+    tbody {
+        td {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 0.4rem 1.5rem;
+
+            input {
+                border-radius: 5px;
+                position: relative;
+                z-index: 1;
+                background: none !important;
+                border: none;
+                width: 100%;
+                font-size: 1rem;
+                padding: 10px;
+                margin: 0;
+                color: #fff;
+                display: inline-block;
+                min-width: 100px;
+                box-shadow: #6a737b 0 1px 3px, #6a737b 0 0 0 1px;
+            }
+        }
+    }
+}
+
+.runaway-alarm-grid,
+.dealer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+
+    .grid-cell {
+        text-wrap: auto;
+        border: solid 1pt #6a737b;
+        padding: 10px;
+
+        span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+}
+
+.dealer-grid .grid-cell {
+    border: none;
+}
+
+.report-email-template {
+    border: solid 1pt #6a737b;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+
+    .report-email-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        .deleteMonitorBlockContainer {
+            padding-top: 22px;
+            max-height: 60px;
+            display: flex;
+            align-items: center;
+
+            .deleteIcon {
+                cursor: pointer;
+                width: 30px;
+                fill: $evolon-red;
+                &:hover {
+                    filter: brightness(1.4);
+                }
+            }
+        }
+    }
+
+    p {
+        margin-top: 0px;
+    }
+}
+
+.pro-monitoring-schedule-display {
+    .schedule-status {
+        font-weight: 700;
+
+        .armed {
+            color: #65bc7b;
+        }
+
+        .disarmed {
+            color: #ba2125;
+        }
+    }
+
+    .read-only-exceptions-table table th:last-child,
+    .read-only-exceptions-table table td:last-child {
+        display: none !important;
+    }
+}
+
+.evolon-use-only-section {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    input {
+        margin-top: 0px !important;
+    }
+}

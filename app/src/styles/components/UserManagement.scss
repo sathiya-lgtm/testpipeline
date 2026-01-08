@@ -1,0 +1,43 @@
+.UserManagement {
+    .CreateUser#customer-select-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .table-container {
+        position: relative;
+        overflow: auto;
+        max-height: 850px;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    > .title {
+        text-align: center;
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0px;
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            #user-search {
+                // TODO: Marked as important to overwrite inline style, should remove inline style later.
+                margin: 0 !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.bridge-controls-modal {
+    max-height: calc(100% - 5rem);
+    margin-top: 4rem;
+    max-width: 1000px;
+
+    .bridge-name {
+        margin-top: 0;
+        color: $text-secondary;
+
+        .label {
+            color: white;
+        }
+    }
+
+    .bridge-commands-container {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .bridge-camera-list {
+        .bridge-camera-list-title {
+            margin-bottom: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .bridge-camera-container {
+            display: flex;
+            margin-bottom: 2rem;
+
+            p {
+                display: inline-block;
+                margin-right: 1rem;
+                width: 250px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .restart-button-container {
+                display: flex;
+                gap: 1rem;
+            }
+        }
+    }
+
+    .logsContainer {
+        .log {
+            margin: 0;
+            margin-bottom: 5px;
+            font-family: monospace, monospace;
+        }
+    }
+
+    .log-button-container {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+}

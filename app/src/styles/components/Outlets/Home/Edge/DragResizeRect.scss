@@ -1,0 +1,31 @@
+.resizeCorner {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border: 1px solid black;
+    background: white;
+
+    &.topLeftCorner {
+        top: -6px;
+        left: -6px;
+        cursor: nwse-resize;
+    }
+
+    &.topRightCorner {
+        top: -6px;
+        right: -6px;
+        cursor: nesw-resize;
+    }
+
+    &.bottomLeftCorner {
+        bottom: -6px;
+        left: -6px;
+        cursor: nesw-resize;
+    }
+
+    &.bottomRightCorner {
+        bottom: -6px;
+        right: -6px;
+        cursor: nwse-resize;
+    }
+}

@@ -1,0 +1,25 @@
+.Alerts {
+    padding: 0px 30px;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .alerts-section-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        .input {
+            margin-left: 1px;
+        }
+
+        .alert-btns {
+            .btn:first-child {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+}

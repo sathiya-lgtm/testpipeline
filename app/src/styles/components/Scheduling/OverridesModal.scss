@@ -1,0 +1,46 @@
+@use '../../abstracts/colors' as *;
+
+.DisarmScheduleModalBase {
+    max-width: 600px;
+}
+
+.DisarmScheduleModal {
+    .disarmPeriodSelectContainer {
+        margin-bottom: 2rem;
+    }
+
+    .disarmTimePeriodContainer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .disarmTimeStampContainer {
+        margin-bottom: 2rem;
+    }
+
+    .disarmDateTimeContainer {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .selectWrapper {
+        margin-top: 4px;
+    }
+
+    .reasonCodeContainer {
+        margin-bottom: 2rem;
+    }
+
+    .actionsContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 6rem;
+        margin-bottom: 0.5rem;
+    }
+}

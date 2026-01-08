@@ -1,0 +1,122 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.subscriptions {
+    .title-container {
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+            margin-bottom: 0;
+        }
+    }
+
+    .no-cameras-registered-text {
+        margin: 0;
+    }
+}
+
+.subscription-card {
+    box-shadow: rgba(0, 0, 0, 0.75) 2px 2px 4px;
+    padding: 1rem 2rem;
+    background-color: $graphite-light;
+    position: relative;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        opacity: 0.6;
+        font-size: 0.9rem;
+    }
+
+    .subscription-card-content {
+        max-width: calc(100% - 200px);
+    }
+
+    .detail {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        background: black;
+        opacity: 0.5;
+        clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    &.selected {
+        border: 2px solid $highlight-blue;
+
+        .detail {
+            background: $highlight-blue;
+        }
+    }
+}
+
+.addons-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.subscription-add-ons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+
+    .radioContainer {
+        .label {
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 11px;
+        }
+    }
+}
+
+.subscription-card-table {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: 25px 25px;
+    grid-template-columns: auto;
+}
+
+.subscription-card-table-column {
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscription-card-table-cell {
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#ai-copilot-enabled-col {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#ai-copilot-enabled-cell {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+#sos-enabled-col {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#sos-enabled-cell {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}

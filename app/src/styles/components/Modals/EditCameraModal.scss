@@ -1,0 +1,38 @@
+.edit-camera-modal {
+    max-width: 500px;
+
+    .edit-camera-form {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .field {
+        max-width: 300px;
+        margin: auto;
+        margin-bottom: 1.5rem;
+
+        .label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .camDetailsShowing__menu {
+            position: relative;
+        }
+    }
+
+    .edit-camera-btns-container {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+
+        .top-row {
+            max-width: 300px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+    }
+}

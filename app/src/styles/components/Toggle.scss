@@ -1,0 +1,87 @@
+@use "../abstracts/colors" as *;
+
+.Toggle {
+  position: relative;
+  display: inline-block;
+  width: 77px;
+  height: 26px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $charcoal;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: $highlight-blue;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px black;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(51px);
+    -ms-transform: translateX(51px);
+    transform: translateX(51px);
+  }
+  .slider .toggleText {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    transform: translateX(12.5%);
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider .toggleText {
+    transform: translateX(-12%);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .toggleText {
+    color: white;
+  }
+}

@@ -1,0 +1,147 @@
+@use '../abstracts/colors' as *;
+
+.Breadcrumbs {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    .breadcrumb {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 67px;
+        max-width: 20ch;
+        height: 1.8rem;
+
+        &:nth-of-type(1) {
+            background-color: rgb(59, 59, 59);
+        }
+
+        &:nth-of-type(2) {
+            background-color: rgb(115, 115, 115);
+        }
+
+        &:nth-of-type(3) {
+            background-color: rgb(100, 100, 100);
+        }
+
+        &.highlight {
+            background-color: $evolon-blue;
+
+            &:hover {
+                background-color: $highlight-blue;
+            }
+        }
+
+        .breadcrumb-label {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            padding-right: 15px;
+        }
+
+        .icon.chevron {
+            width: 15px;
+            fill: white;
+            rotate: -90deg;
+            padding-bottom: 10px;
+        }
+
+        .icon.globe {
+            height: 70%;
+            padding: 0px 10px;
+        }
+
+        &.start {
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+
+            &::after {
+                display: block;
+                content: '';
+                position: absolute;
+                left: 100%;
+                width: 40px;
+                height: 100%;
+                background-color: inherit;
+                clip-path: polygon(
+                    50% 0,
+                    100% 50%,
+                    50% 100%,
+                    0% 100%,
+                    0 50%,
+                    0% 0%
+                );
+            }
+        }
+
+        &.middle {
+            &::before {
+                display: block;
+                content: '';
+                position: absolute;
+                right: 100%;
+                width: 40px;
+                height: 100%;
+                background-color: inherit;
+                clip-path: polygon(
+                    100% 0,
+                    100% 50%,
+                    100% 100%,
+                    0% 100%,
+                    56% 50%,
+                    0% 0%
+                );
+            }
+
+            &::after {
+                display: block;
+                content: '';
+                position: absolute;
+                left: 100%;
+                width: 40px;
+                height: 100%;
+                background-color: inherit;
+                clip-path: polygon(
+                    50% 0,
+                    100% 50%,
+                    50% 100%,
+                    0% 100%,
+                    0 50%,
+                    0% 0%
+                );
+            }
+        }
+
+        &.end {
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+
+            &::before {
+                display: block;
+                content: '';
+                position: absolute;
+                right: 100%;
+                width: 40px;
+                height: 100%;
+                background-color: inherit;
+                clip-path: polygon(
+                    100% 0,
+                    100% 50%,
+                    100% 100%,
+                    0% 100%,
+                    56% 50%,
+                    0% 0%
+                );
+            }
+        }
+    }
+}

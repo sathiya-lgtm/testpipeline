@@ -1,0 +1,55 @@
+@use '../../../styles/abstracts/colors' as *;
+@use 'sass:color';
+
+.dealer-contact {
+    width: 100%;
+    padding: 0px 50px 20px;
+
+    h3 {
+        font-size: 2.25rem;
+        padding: 0;
+        margin: 20px 0px;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .dealer-contact-body {
+        display: flex;
+        gap: 25px;
+
+        .dealer-contact-section {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            min-height: -webkit-fill-available;
+            padding: 25px 50px 25px 25px;
+            border: 1px solid #f8f9fa33;
+
+            p {
+                margin: 10px;
+            }
+
+            .support-icon-div {
+                display: flex;
+                justify-content: flex-end;
+
+                .bisupport-icon {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+
+            .submit-ticket {
+                height: 40px;
+                margin: 20px 0 0 10px;
+
+                .ticket-raise {
+                    background: #65bc7b;
+                    color: white;
+                }
+            }
+        }
+    }
+}

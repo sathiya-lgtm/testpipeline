@@ -1,0 +1,101 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.PremiumFeaturesModal {
+    .error {
+        color: $evolon-error;
+    }
+
+    #tooltip-icon {
+        width: clamp(10px, 10%, 20px);
+        fill: $evolon-blue;
+
+        &:hover {
+            filter: brightness(1.4);
+        }
+
+        &:active {
+            scale: 0.8;
+        }
+    }
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        .icon {
+            height: 20px;
+            fill: $offWhite;
+            width: clamp(10px, 30%, 25px);
+        }
+    }
+
+    .field {
+        max-width: 300px;
+        margin: auto;
+        margin-bottom: 1.5rem;
+
+        .label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .asterisk {
+            color: $evolon-red;
+            margin-left: 10px;
+        }
+    }
+
+    .disabled {
+        opacity: 0.5;
+
+        &:hover::before {
+            display: none;
+        }
+
+        & > * {
+            pointer-events: none;
+        }
+
+        & input {
+            color: $steel;
+            --track-color: #5c5c5c;
+        }
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin: 1.5rem 0 0.2rem 0;
+    }
+
+    #vehicle-loitering-fields-container {
+        .slider {
+            opacity: 0.5;
+        }
+
+        .Toggle:hover::before {
+            z-index: 5;
+            position: absolute;
+            display: block;
+            padding: 8px;
+            left: -30px;
+            content: 'Feature currently unavailable.';
+            color: $offWhite;
+            font-size: 0.8rem;
+            background-color: black;
+        }
+    }
+}

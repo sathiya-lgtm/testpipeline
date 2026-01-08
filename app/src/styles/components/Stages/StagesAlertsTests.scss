@@ -1,0 +1,18 @@
+@use '../../abstracts/colors' as *;
+
+.stagesAlertsTestsContainer {
+    p {
+        margin: 0;
+    }
+
+    .alertResultRow {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .label {
+        color: $text-secondary;
+    }
+}

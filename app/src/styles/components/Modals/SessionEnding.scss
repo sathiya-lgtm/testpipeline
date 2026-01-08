@@ -1,0 +1,81 @@
+@use '../../abstracts/colors' as *;
+
+.confirmModalBackground {
+    overflow: auto;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: #00000080;
+    padding-top: 4%;
+    padding-bottom: 4%;
+
+    .modal {
+        opacity: 0;
+        transition: all 0.5s;
+    }
+}
+
+.confirmModalBackground.show {
+    display: block;
+
+    .modal {
+        opacity: 1;
+        margin: auto;
+        max-width: 600px;
+        background: $graphite;
+        border-radius: 15px;
+        padding: 2rem;
+        position: relative;
+
+        .modalHeader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+
+            .title {
+                font-weight: bold;
+                font-size: 2rem;
+                text-align: center;
+                margin: 0;
+            }
+        }
+
+        .modalBody {
+            margin-bottom: 25px;
+
+            p {
+                margin: 0;
+                padding: 0.7rem;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.6);
+            }
+
+            .time-remaining {
+                animation: fadeIn 1s;
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .saveBtnContainer {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            max-width: 300px;
+            margin: auto;
+        }
+    }
+}

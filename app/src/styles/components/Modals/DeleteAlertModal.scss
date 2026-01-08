@@ -1,0 +1,31 @@
+.DeleteAlertModal {
+    text-align: center;
+
+    p {
+        margin-bottom: 2rem;
+        line-height: 1.5;
+    }
+
+    .btn.danger {
+        margin-right: 25px;
+    }
+}
+
+.DeleteAlertModal-Link-DMP-Account {
+    background-color: transparent;
+
+    .section-title {
+        font-size: 110%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 10px;
+        padding-left: 20px;
+    }
+
+    .section-content {
+        padding: 20px;
+    }
+}

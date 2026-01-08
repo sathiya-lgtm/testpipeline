@@ -1,0 +1,9 @@
+.create-customer {
+    .miy-subscription-container {
+        margin-bottom: 2rem;
+
+        button:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@use '../../../../abstracts/colors' as *;
+
+.scalingEditor {
+    p {
+        margin: 0;
+    }
+
+    .label {
+        opacity: 0.75;
+    }
+
+    .objectScaleContainer {
+        margin-bottom: 1rem;
+
+        .objectScaleIconBtnsContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 0.5rem;
+
+            button:not(:last-child) {
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    .smallestObjectSizeContainer {
+        margin-bottom: 1rem;
+
+        .input {
+            margin-top: 4px;
+        }
+    }
+
+    .toggleContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        .label {
+            margin-right: 2rem;
+        }
+    }
+
+    .sliderContainer {
+        margin-bottom: 1rem;
+    }
+
+    .radioContainer {
+        margin-bottom: 1rem;
+
+        .label {
+            margin-right: 2rem;
+        }
+    }
+
+    .divider {
+        position: relative;
+        height: 2px;
+        background-color: $slate;
+        margin-bottom: 1rem;
+    }
+
+    .buttonContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.smallestSizeReferenceIcon.blue {
+    path,
+    rect,
+    circle,
+    polygon {
+        fill: $evolon-blue;
+    }
+}
+
+.smallestSizeReferenceIcon.yellow {
+    path,
+    rect,
+    circle,
+    polygon {
+        fill: yellow;
+    }
+}
+
+.smallestSizeReferenceIcon.red {
+    path,
+    rect,
+    circle,
+    polygon {
+        fill: $highlight-red;
+    }
+}

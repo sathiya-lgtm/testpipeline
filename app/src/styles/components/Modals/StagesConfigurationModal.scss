@@ -1,0 +1,11 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.stagesConfigurationModal {
+    .accountInfoContainer {
+        margin-bottom: 1rem;
+
+        .label {
+            color: $text-secondary;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.camera-action-copy-modal {
+    .modal-body {
+        height: auto;
+        overflow-y: hidden;
+        .inner-body {
+            max-height: 600px;
+            padding: 10px;
+            overflow: auto;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $graphite;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: $slate;
+        border-radius: 10px;
+        border: 2px solid $steel;
+        &:hover {
+            background: $highlight-blue;
+        }
+    }
+}

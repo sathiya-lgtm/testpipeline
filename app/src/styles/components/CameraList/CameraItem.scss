@@ -1,0 +1,110 @@
+@use '../../abstracts/colors' as *;
+
+.camera {
+    padding: 0.2rem 0 3px 2.2rem;
+    position: relative;
+
+    // Styling for this element when being viewed by a Customer.
+    // TODO the lines connecting Camera List elements should align automatically as to not need context specific styling such as this.
+    &.customer-specific {
+        margin-left: -0.8rem;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        border-top: 1px solid #bdc3c7;
+        border-left: 1px solid #bdc3c7;
+        height: 100%;
+        width: 1rem;
+        position: absolute;
+
+        bottom: -0.7rem;
+        left: 1.2rem;
+    }
+
+    &:last-child:before {
+        border-left: none;
+    }
+
+    .edgeStatusContainer {
+        overflow: visible;
+        position: relative;
+    }
+
+    .edgeStatusTooltip {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0.2rem;
+        border-radius: 5px;
+
+        &.PENDING {
+            color: black;
+            background: white;
+        }
+        
+        &.OFFLINE {
+            color: white;
+            background: $evolon-red;
+        }
+
+        &.ONLINE {
+            background: $evolon-green;
+            color: black;
+        }
+
+        &.UNKNOWN {
+            background: $evolon-error;
+        }
+    }
+
+    .edgeStatusReading {
+        height: 0.6rem;
+        width: 0.6rem;
+        border-radius: 50%;
+        background: black;
+        display: inline-block;
+
+        &.offline {
+            background: $evolon-red;
+        }
+
+        &.OFFLINE {
+            background: $evolon-red;
+        }
+
+        &.PENDING {
+            background: white;
+        }
+
+        &.ONLINE {
+            background: $evolon-green;
+            color: black;
+        }
+
+        &.UNKNOWN {
+            background: $evolon-error;
+        }
+    }
+
+    .link {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        color: $offWhite;
+        font-weight: bold;
+    }
+
+    .link:hover {
+        opacity: 0.6;
+    }
+
+    .link.active {
+        color: $highlight-blue;
+    }
+
+    .link.active:hover {
+        filter: brightness(1.2);
+    }
+}

@@ -1,0 +1,163 @@
+@use '../abstracts/colors' as *;
+
+.btn {
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 4px;
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.fluid {
+        width: 100%;
+    }
+
+    &.rounded {
+        border-radius: 9999px;
+    }
+
+    &.sm {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-size: 0.8rem;
+    }
+}
+
+.btn.primary {
+    background: $evolon-blue; // #5599b8;
+    color: $white;
+    border: 2px solid $evolon-blue; //#5599b8;
+
+    &:hover {
+        background: #34657b;
+        border: 2px solid #34657b;
+    }
+
+    &:active {
+        background: #2b5467;
+    }
+}
+
+.btn.primary.outline {
+    background: none;
+
+    &:hover {
+        background: $evolon-blue;
+        border: 2px solid $evolon-blue;
+        color: white;
+    }
+
+    &:active {
+        background: #2b5467;
+    }
+}
+
+.btn.danger {
+    background: $evolon-red;
+    color: $white;
+    border: 2px solid $evolon-red;
+
+    &:hover {
+        background: #a01c21;
+        border: 2px solid #a01c21;
+    }
+
+    &:active {
+        background: #85171b;
+    }
+}
+
+.btn.danger.outline {
+    background: none;
+
+    &:hover {
+        background: $evolon-red;
+        border: 2px solid $evolon-red;
+        color: white;
+    }
+
+    &:active {
+        background: #85171b;
+    }
+}
+
+.btn.neutral {
+    background-color: $slate;
+    color: $white;
+    border: 2px solid $slate;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
+
+    &:active {
+        filter: brightness(0.6);
+    }
+}
+
+.btn.neutral.outline {
+    background: none;
+
+    &:hover {
+        background: $slate;
+        border: 2px solid $slate;
+        color: white;
+    }
+
+    &:active {
+        background: $slate;
+    }
+}
+
+.iconBtn {
+    border-radius: 10px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 4px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    cursor: pointer;
+
+    .iconBtnIcon {
+        width: 2rem;
+        height: 2rem;
+
+        path,
+        rect,
+        circle,
+        polygon {
+            fill: rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    &.active {
+        border: 2px solid $highlight-blue;
+
+        .iconBtnIcon {
+            path,
+            rect,
+            circle,
+            polygon {
+                fill: $highlight-blue;
+            }
+        }
+    }
+}
+
+.btn.danger.cancel {
+    max-width: 100px;
+}
+
+.btn.primary.register {
+    max-width: 100px;
+}

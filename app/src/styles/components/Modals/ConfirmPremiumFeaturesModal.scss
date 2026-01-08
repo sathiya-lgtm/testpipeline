@@ -1,0 +1,21 @@
+.ConfirmPremiumFeaturesModal {
+    text-align: center;
+
+    p {
+        margin: 0;
+        padding: 20px 10px;
+    }
+
+    hr {
+        margin: 30px 0px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin: 1.5rem 0 0.2rem 0;
+    }
+}

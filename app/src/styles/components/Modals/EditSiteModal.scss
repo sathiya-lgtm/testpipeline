@@ -1,0 +1,39 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.ModalBase header h2 {
+    font-size: 1.2rem !important;
+    margin: 0.75em 0 !important;
+}
+
+.edit-site-modal {
+    .confirm-message {
+        margin-bottom: 3rem;
+        text-align: center;
+        line-height: 1.5;
+
+        .bold {
+            font-weight: bold;
+        }
+    }
+
+    .btn-container {
+        text-align: center;
+        margin-top: 2rem;
+        // display: flex;
+        align-items: center;
+        // justify-content: space-around;
+
+        .top-row {
+            max-width: 300px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .btn.danger {
+            margin-right: 25px;
+        }
+    }
+}

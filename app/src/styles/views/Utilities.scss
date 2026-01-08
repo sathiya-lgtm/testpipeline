@@ -1,0 +1,514 @@
+@use '../abstracts/colors' as *;
+@use 'sass:color';
+
+.Utilities {
+    position: relative;
+    padding: 2rem 0px 2% 0px;
+
+    .utilitiesContainer {
+        margin: auto;
+        max-width: 1600px;
+        padding-left: 15px;
+        padding-right: 15px;
+        gap: 4rem;
+        overflow: hidden;
+    }
+
+    .UtilitiesMenu {
+        position: fixed;
+        overflow: auto;
+        max-height: calc(100vh - 88px);
+        padding-right: 15px;
+        padding-bottom: 30px;
+
+        h3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 15px;
+        }
+
+        h3:not(:first-child) {
+            margin-top: 3rem;
+        }
+
+        h3 .icon {
+            margin: 3px 15px 0px 0px;
+            height: 1.65rem;
+        }
+
+        .alertingSectionTitle {
+            margin-top: 3rem;
+        }
+
+        li {
+            min-width: 200px;
+            margin: 8px 0px;
+            padding: 20px;
+            list-style: none;
+            box-shadow: rgba(0, 0, 0, 0.45) 2px 2px 4px;
+            background-color: $graphite;
+        }
+
+        li:hover,
+        li:active {
+            cursor: pointer;
+            background-color: color.adjust($graphite, $lightness: 10%);
+        }
+
+        li.selected {
+            background-color: $highlight-blue;
+        }
+    }
+
+    .utilitiesFormWrapper {
+        overflow: hidden;
+        padding-left: 2px;
+        padding-right: 2px;
+        margin-left: 360px;
+        padding-bottom: 1rem;
+        min-height: 600px;
+    }
+
+    .form {
+        position: relative;
+        z-index: 10;
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin: 25px 0px;
+        }
+
+        .form-item {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            padding: 0px 0px 5px 0px;
+        }
+
+        .error {
+            color: rgb(255, 34, 34);
+        }
+
+        .asterisk {
+            color: $evolon-red;
+            margin-left: 10px;
+        }
+
+        .report-time-range-container {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-column-gap: 1.5rem;
+            margin-bottom: 25px;
+            color-scheme: dark;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    form {
+        position: relative;
+        z-index: 10;
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin: 25px 0px;
+        }
+
+        .form-item {
+            margin-bottom: 0.75rem;
+        }
+
+        label {
+            padding: 0px 0px 5px 0px;
+        }
+
+        .error {
+            color: rgb(255, 34, 34);
+        }
+
+        .asterisk {
+            color: $evolon-red;
+            margin-left: 10px;
+        }
+
+        .report-time-range-container {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-column-gap: 1.5rem;
+            margin-bottom: 25px;
+            color-scheme: dark;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .registerDeviceTabs {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-bottom: 25px;
+        box-shadow: 0px 2px rgba(0, 0, 0, 0.25);
+
+        .deviceTab {
+            padding: 15px 25px;
+            font-family: regular;
+
+            &:hover,
+            &:active,
+            &.selected {
+                cursor: pointer;
+                font-family: semi-bold;
+                background-color: #212626;
+                box-shadow: 2px 0px rgba(0, 0, 0, 0.25);
+            }
+
+            &.selected {
+                color: $highlight-blue;
+            }
+        }
+    }
+
+    .registerDeviceTabs {
+        display: flex;
+    }
+
+    .RegisterDevice {
+        position: relative;
+
+        .evolon-logo-container {
+            text-align: center;
+            margin-top: 1.2rem;
+        }
+
+        #evolon-logo {
+            .st0 {
+                fill: white;
+            }
+
+            width: clamp(200px, 35%, 500px);
+        }
+
+        #title {
+            display: flex;
+            flex-direction: column;
+            margin: 35px 0;
+            padding: 0;
+            text-align: center;
+
+            & span:nth-child(1) {
+                color: white;
+            }
+
+            & span:nth-child(2) {
+                font-size: smaller;
+                color: $text-secondary;
+            }
+        }
+
+        form {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            & > * {
+                width: 100%;
+            }
+
+            input {
+                font-size: 1rem;
+            }
+
+            button {
+                font-size: 1rem;
+                margin-top: 2rem;
+            }
+
+            .select-container #customers {
+                margin-top: 5px;
+            }
+            
+            .select-container.passwords-matched {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: start;
+                svg {
+                    color: $evolon-green;
+                }
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+
+            .select-container.passwords-not-matched {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: start;                
+                svg {
+                    color: $evolon-red;
+                }
+
+                span {
+                    margin-left: 10px;
+                }
+                
+            }
+        }
+
+        .st0 {
+            display: initial;
+            fill: $evolon-red;
+            stroke: none;
+        }
+    }
+
+    .generatedEmailContainer {
+        margin-top: 3rem;
+
+        .success {
+            color: #41c07c;
+            font-weight: bold;
+        }
+
+        .generatedEmailInputContainer {
+            display: flex;
+
+            .input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .btn {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .icon {
+                fill: white;
+            }
+        }
+    }
+
+    .smtpConfigInfo {
+        padding: 1rem;
+        border-radius: 5px;
+        background: #2b3131;
+        margin-bottom: 2rem;
+
+        p {
+            margin: 0;
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 0.8rem;
+        }
+    }
+
+    .selectFileContainer {
+        margin-bottom: 3rem;
+
+        span {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
+
+    .bulk-upload-loading-screen {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        top: 0;
+        left: 0;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .bulk-upload-text-container {
+            text-align: center;
+        }
+    }
+
+    .download-container {
+        hr {
+            margin-bottom: 1.5rem;
+        }
+
+        text-align: center;
+    }
+
+    .retention-card {
+        box-shadow: rgba(0, 0, 0, 0.75) 2px 2px 4px;
+        padding: 1rem 2rem;
+        background-color: $graphite-light;
+        position: relative;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        .detail {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background: black;
+            opacity: 0.5;
+            clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        &.selected {
+            border: 2px solid $highlight-blue;
+
+            .detail {
+                background: $highlight-blue;
+            }
+        }
+    }
+
+    .multiModalModelForm {
+        .headerContainer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .titleContainer {
+                display: flex;
+            }
+
+            h3 {
+                margin-right: 3rem;
+            }
+        }
+
+        .multi-modal-toggle-container {
+            display: flex;
+            align-items: center;
+
+            .multi-modal-toggle-label {
+                margin-right: 15px;
+                opacity: 0.75;
+
+                .note {
+                    margin-top: 0.5rem;
+                    font-size: 0.75rem;
+                }
+            }
+        }
+
+        .policy-card {
+            box-shadow: rgba(0, 0, 0, 0.75) 2px 2px 4px;
+            padding: 1.5rem 2rem;
+            background-color: $graphite-light;
+            position: relative;
+            margin-bottom: 1.5rem;
+
+            h3 {
+                margin: 0;
+                margin-bottom: 2px;
+            }
+
+            .policy-title {
+                display: flex;
+                align-items: center;
+
+                h3 {
+                    margin-right: 1rem;
+                }
+
+                span {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+    .dispatchServiceConfiguration {
+        .accountInfoContainer {
+            margin-bottom: 1rem;
+
+            .label {
+                color: $text-secondary;
+            }
+        }
+
+        .stagesAlertsTestWrapper {
+            margin-bottom: 2rem;
+        }
+
+        .button-container {
+            margin-bottom: 3rem;
+        }
+    }
+
+    .table-tab-list {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        box-shadow: 0px 2px rgba(0, 0, 0, 0.25);
+        margin-bottom: 1rem;
+
+        .dashboard-tab {
+            padding: 15px 25px;
+            font-family: regular;
+
+            &:hover,
+            &:active,
+            &.selected {
+                cursor: pointer;
+                font-family: semi-bold;
+                background-color: #212626;
+                box-shadow: 2px 0px rgba(0, 0, 0, 0.25);
+            }
+
+            &:nth-of-type(1):hover,
+            &:nth-of-type(1):active,
+            &:nth-of-type(1).selected {
+                color: $highlight-blue;
+            }
+
+            &:nth-of-type(2):hover,
+            &:nth-of-type(2):active,
+            &:nth-of-type(2).selected {
+                color: #65bc7b;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.DateRangeModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .error {
+        color: #f7791d;
+    }
+
+    .field-container {
+        margin: 15px 0px;
+
+        .label {
+            width: 100%;
+        }
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+}

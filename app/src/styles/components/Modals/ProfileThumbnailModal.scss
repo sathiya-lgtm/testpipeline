@@ -1,0 +1,34 @@
+.profileThumbnailModal {
+    padding-top: 2rem;
+
+    .thumbnail-container {
+        margin: auto;
+        height: 170px;
+        width: 170px;
+        border-radius: 100%;
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4rem;
+
+        img {
+            height: 150px;
+            width: 150px;
+            border-radius: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .separator {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .action-btns-container {
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

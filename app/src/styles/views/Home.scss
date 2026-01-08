@@ -1,0 +1,86 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/sizing' as *;
+@use 'sass:color';
+
+$header-height: 225px;
+
+.Home {
+    position: relative;
+    display: flex;
+    height: calc(100vh - $navbar-height);
+
+    .menu {
+        position: relative;
+        width: clamp(200px, 30%, 450px);
+        box-shadow: rgba(0, 0, 0, 0.35) 10px 4px 4px -8px;
+
+        h2 {
+            text-align: center;
+            margin: 0;
+            color: color.adjust($text-secondary, $lightness: 40%);
+            font-size: 1.1rem;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: $header-height;
+        }
+
+        .content {
+            position: relative;
+            max-height: calc(100% - $header-height);
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .user-info-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            margin: 25px 0;
+            cursor: pointer;
+
+            .profile-thumbnail {
+                height: 90px;
+                width: 90px;
+                // background: rgba(0, 0, 0, 0.7);
+                background: black;
+                // background: #2b3131;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    object-fit: contain;
+                    height: 75px;
+                    width: 75px;
+                    border-radius: 100%;
+                }
+            }
+        }
+
+        .thumbnail-icon {
+            width: 80px;
+        }
+
+        #no-results-found {
+            color: $offWhite;
+            font-size: 0.9rem;
+            padding: 10px 15px;
+        }
+    }
+
+    main {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        flex-grow: 1;
+        overflow-x: hidden;
+        // scrollbar-gutter: stable; // This is adding an invisible wall to the right of the page, commenting out until I know what to do with it.
+    }
+}

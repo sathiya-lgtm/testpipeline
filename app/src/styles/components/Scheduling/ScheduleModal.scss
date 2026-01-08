@@ -1,0 +1,111 @@
+@use '../../abstracts/colors' as *;
+
+.CreateScheduleModalBase {
+    max-width: 1000px;
+    margin-top: 60px;
+}
+
+.CreateScheduleModal {
+    max-width: 1000px;
+
+    .importScheduleTemplateContainer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .iconBtn {
+            padding: 0.6rem;
+            border: 1px solid $slate;
+            border-radius: 8px;
+
+            .iconBtnReactIcon {
+                height: 1.5rem;
+                width: 1.5rem;
+                fill: rgba(255, 255, 255, 0.4);
+            }
+
+            .iconBtnIcon {
+                height: 1.2rem;
+                width: 1.2rem;
+            }
+
+            &:hover {
+                background: $evolon-blue;
+
+                .iconBtnReactIcon {
+                    fill: white;
+                }
+
+                .iconBtnIcon {
+                    path,
+                    rect,
+                    circle,
+                    polygon {
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .scheduleNameAndTimeZoneInputContainer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .timeZoneSelect {
+            margin-top: 4px;
+        }
+    }
+
+    .monitoringBlock {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .select {
+            margin-top: 5px;
+        }
+
+        .timeSelectsContainer {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 30px;
+            gap: 1rem;
+        }
+
+        .deleteMonitorBlockContainer {
+            padding-top: 22px;
+            max-height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .deleteIcon {
+                cursor: pointer;
+                width: 30px;
+                fill: $evolon-red;
+                &:hover {
+                    filter: brightness(1.4);
+                }
+            }
+        }
+    }
+
+    .timeBlocksButtonContainer {
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .actionsContainer {
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}

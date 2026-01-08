@@ -1,0 +1,664 @@
+@use '../abstracts/colors' as *;
+
+.input-wrapper {
+    .asterisk {
+        color: $evolon-red;
+        margin-left: 10px;
+    }
+
+    .subText {
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 5px;
+    }
+
+    .label {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        span {
+            display: flex;
+            align-items: center;
+        }
+
+        .label-text {
+            margin-right: 6px;
+        }
+    }
+
+    .help-icon {
+        fill: white;
+        stroke: none;
+        display: block;
+        width: 14px;
+    }
+}
+
+.input {
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: none !important;
+    border: none;
+    width: 100%;
+    color: $offWhite;
+    font-size: 1rem;
+    padding: 10px;
+    margin: 0;
+    color: white;
+    display: inline-block;
+    min-width: 100px;
+    box-shadow: $slate 0px 1px 3px 0px, $slate 0px 0px 0px 1px;
+
+    &:focus {
+        outline: none;
+        border: none;
+        box-shadow: $highlight-blue 0px 1px 3px 0px,
+            $highlight-blue 0px 0px 0px 1px;
+    }
+
+    &.error {
+        border-color: $evolon-error;
+    }
+
+    &.success {
+        border-color: #00ff00;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+    }
+}
+
+.input.small {
+    padding: 6px;
+}
+
+.input.noHighlight {
+    &::selection {
+        background: none;
+        color: none;
+    }
+}
+
+.numberInputContainer {
+    position: relative;
+}
+
+.suffixContainer {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 100%;
+    padding: 7px 11px;
+
+    .valuePlaceholder {
+        visibility: hidden;
+        margin-right: 5px;
+    }
+
+    .suffix::selection {
+        background: none;
+        color: none;
+    }
+
+    .suffix {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.numberSpinner {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 25px;
+    top: 0;
+    right: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .upArrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        border-left: 1px solid $offWhite;
+        border-bottom: 1px solid $offWhite;
+        border-top-right-radius: 5px;
+        transition: all 0.2s;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        &::selection {
+            color: none;
+            background: none;
+        }
+    }
+
+    .downArrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        border-left: 1px solid $offWhite;
+        border-bottom-right-radius: 5px;
+        transition: all 0.2s;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+.timeFilter {
+    span {
+        color: $text-secondary;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+}
+
+.singleSelectFilter {
+    span {
+        color: $text-secondary;
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+
+    .selectContainer {
+        width: 100%;
+    }
+}
+
+.autoComplete {
+    border-radius: 5px;
+    z-index: 1;
+    padding: 10px;
+    background: none !important;
+    border: none;
+    color: $offWhite;
+    font-size: 1rem;
+    color: white;
+    box-shadow: $slate 0px 1px 3px 0px, $slate 0px 0px 0px 1px;
+    position: relative;
+
+    p {
+        margin: 0;
+    }
+
+    &:focus {
+        outline: none;
+        border: none;
+        box-shadow: $highlight-blue 0px 1px 3px 0px,
+            $highlight-blue 0px 0px 0px 1px;
+    }
+
+    &.error {
+        border-color: $evolon-error;
+    }
+
+    &.success {
+        border-color: #00ff00;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+    }
+}
+
+.form-input {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    .tooltip {
+        display: grid;
+        grid-template-rows: 38px;
+        grid-template-columns: auto 50px;
+        .form-input-label {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-end;
+            margin-bottom: 5px;
+        }
+
+        .form-input-icon {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-end;
+            justify-content: flex-start;
+            svg {
+                margin-left: 10px;
+                margin-bottom: 5px;
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .form-input-field {
+        outline: none;
+        min-height: 38px;
+        padding-left: 10px;
+        color: white;
+        background-color: inherit;
+        border: solid thin $slate;
+        width: 100%;
+    }
+
+    .form-input-field-password {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        border: solid 1pt $slate;
+        width: 100%;
+        input {
+            border: none;
+        }
+        span {
+            font-size: 16pt;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            border-left: solid 1pt $slate;
+            min-width: 38px;
+            min-height: 38px;
+        }
+    }
+
+    .form-input-field-readonly {
+        margin-top: 10px;
+        min-height: 38px;
+        color: $slate;
+        background-color: inherit;
+        border-radius: 5px;
+        width: 100%;
+    }
+}
+
+.form-password-input {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    .tooltip {
+        display: grid;
+        grid-template-rows: 38px;
+        grid-template-columns: auto 50px;
+        .form-password-input-label {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-end;
+            margin-bottom: 5px;
+        }
+
+        .form-password-input-icon {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-end;
+            justify-content: flex-start;
+            svg {
+                margin-left: 10px;
+                margin-bottom: 5px;
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .form-password-input-row {
+        outline: none;
+        display: grid;
+        grid-template-rows: 38px;
+        grid-template-columns: auto 38px;
+        width: 100%;
+        border: solid 1pt $slate;
+
+        .form-password-input-field {
+            outline: none;
+            padding-left: 10px;
+            color: inherit;
+            background-color: inherit;
+            border: none;
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+
+        .form-password-input-reveal {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            border-left: solid 1pt $slate;
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            &:hover {
+                cursor: pointer;
+                background-color: $highlight-blue;
+            }
+        }
+    }
+
+    .form-password-input-password-check {
+        padding: 5px;
+        height: 50px;
+        width: 100%;
+        .passwords-no-match {
+            display: grid;
+            grid-template-rows: 38px;
+            grid-template-columns: 200px auto;
+            color: red;
+            transition-property: color;
+            transition-delay: 0.2s;
+            transition-duration: 0.5s;
+            .password-no-match-label {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+            }
+            .password-no-match-icon {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                grid-row: 1 / 2;
+                grid-column: 2 / 3;
+                svg {
+                    font-size: 1.4em;
+                }
+            }
+        }
+
+        .passwords-match {
+            display: grid;
+            grid-template-rows: 38px;
+            grid-template-columns: 150px auto;
+            color: greenyellow;
+            transition-property: color;
+            transition-delay: 0.2s;
+            transition-duration: 0.5s;
+            .password-no-match-label {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+            }
+            .password-no-match-icon {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                grid-row: 1 / 2;
+                grid-column: 2 / 3;
+                svg {
+                    font-size: 1.4em;
+                }
+            }
+        }
+    }
+}
+
+.form-select {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: transparent;
+    margin-bottom: 10px;
+
+    .form-select-label {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: start;
+        min-height: 28px;
+        width: 100%;
+        .form-select-label-text {
+            color: white;
+        }
+        .form-select-label-icon {
+            margin-left: 10px;
+            color: white;
+        }
+    }
+
+    .form-select-container {
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        width: 100%;
+        border: solid 1pt $slate;
+        padding: 5px;
+
+        .form-select-input {
+            margin-left: 5px;
+            color: white;
+            background-color: transparent;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+
+        .form-select-placeholder {
+            margin-left: 5px;
+            color: $slate;
+            background-color: transparent;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+
+        .form-select-clear {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 28px;
+            transition-property: color;
+            transition-duration: 0.5s;
+            transition-delay: 0.25s;
+            &:hover {
+                cursor: pointer;
+                color: $highlight-blue;
+                transition-property: color;
+                transition-duration: 0.5s;
+                transition-delay: 0.25s;
+            }
+        }
+
+        .form-select-chevron {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 28px;
+            border-left: solid 1pt white;
+            transition-property: color;
+            transition-duration: 0.5s;
+            transition-delay: 0.25s;
+            &:hover {
+                cursor: pointer;
+                color: $highlight-blue;
+                transition-property: color;
+                transition-duration: 0.5s;
+                transition-delay: 0.25s;
+            }
+        }
+    }
+
+    .form-select-options {
+        z-index: 99;
+        position: absolute;
+        top: calc(28px + 38px);
+        display: inline-block;
+        max-height: 200px;
+        width: 100%;
+        border: solid 1pt $slate;
+        overflow: hidden;
+        overflow-y: auto;
+        color: white;
+        background-color: $charcoal;
+        .form-select-option {
+            padding-left: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: start;
+            min-height: 40px;
+            width: 100%;
+            color: white;
+            background-color: $charcoal;
+            &:hover {
+                user-select: none;
+                cursor: pointer;
+                background-color: $highlight-blue;
+            }
+        }
+
+        .form-select-option-selected {
+            padding-left: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: start;
+            min-height: 40px;
+            width: 100%;
+            color: white;
+            background-color: $highlight-blue;
+            &:hover {
+                user-select: none;
+                cursor: pointer;
+                background-color: $highlight-blue;
+            }
+        }
+    }
+
+    .form-select-autocomplete {
+        z-index: 99;
+        position: absolute;
+        top: calc(28px + 38px);
+        display: inline-block;
+        max-height: 200px;
+        width: 100%;
+        border: solid 1pt $slate;
+        overflow: hidden;
+        overflow-y: auto;
+        color: white;
+        background-color: $charcoal;
+        .form-select-option {
+            padding-left: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: start;
+            min-height: 40px;
+            width: 100%;
+            background-color: $charcoal;
+            &:hover {
+                cursor: pointer;
+                background-color: $highlight-blue;
+            }
+        }
+
+        .form-select-option .selected {
+            padding-left: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: start;
+            min-height: 40px;
+            width: 100%;
+            color: white;
+            background-color: $highlight-blue;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $graphite;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: $slate;
+        border-radius: 10px;
+        border: 2px solid $steel;
+        &:hover {
+            background: $highlight-blue;
+        }
+    }
+}
+
+.password-input {
+    z-index: unset;
+    border-radius: 5px 0px 0px 5px;
+    box-shadow: none;
+}
+
+.password-field {
+    outline: none;
+    display: grid;
+    grid-template-rows: 38px;
+    grid-template-columns: auto 38px;
+    width: 100%;
+    margin: 5px 0px 25px;
+    border-radius: 5px;
+    box-shadow: #6a737b 0px 1px 3px 0px, #6a737b 0px 0px 0px 1px;
+
+    .input {
+        margin: unset !important;
+    }
+}
+
+.form-password-input-reveal {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    border-left: solid 1pt $slate;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    &:hover {
+        cursor: pointer;
+        background-color: $highlight-blue;
+    }
+}
+
+// ✅ Autofill styling that actually works in Chrome/Edge
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #6a737b inset !important;
+    -webkit-text-fill-color: $offWhite !important;
+    caret-color: $offWhite;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: #00aadc 0px 1px 3px 0px, #00aadc 0px 0px 0px 1px !important;
+}

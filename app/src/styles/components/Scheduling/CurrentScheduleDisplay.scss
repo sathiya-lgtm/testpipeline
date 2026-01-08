@@ -1,0 +1,104 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.timeZoneAndOveridesContainer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    .currentStatusContainer {
+        p {
+            font-weight: bold;
+        }
+
+        .armed {
+            color: $evolon-green;
+        }
+
+        .disarmed {
+            color: $evolon-red;
+        }
+    }
+}
+
+.weeklyScheduleContainer {
+    margin-bottom: 3rem;
+    overflow: visible;
+
+    .scheduleEditsContainer {
+        display: flex;
+
+        .tooltip {
+            &::before {
+                width: auto;
+                border-top-left-radius: 3px;
+                white-space: nowrap;
+                bottom: 106%;
+                left: 0;
+            }
+        }
+
+        .iconBtn {
+            padding: 0.6rem;
+            border: 1px solid $slate;
+
+            .iconBtnReactIcon {
+                height: 1.5rem;
+                width: 1.5rem;
+                fill: rgba(255, 255, 255, 0.4);
+            }
+
+            .iconBtnIcon {
+                height: 1.2rem;
+                width: 1.2rem;
+            }
+
+            &:hover {
+                background: $evolon-blue;
+
+                .iconBtnReactIcon {
+                    fill: white;
+                }
+
+                .iconBtnIcon {
+                    path,
+                    rect,
+                    circle,
+                    polygon {
+                        fill: white;
+                    }
+                }
+            }
+        }
+
+        .firstBtn {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .middleBtn {
+            border-radius: 0;
+        }
+
+        .lastBtn {
+            border-top-right-radius: 10px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}
+
+.scheduleExcepetionsContainer {
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.scheduleExceptionsButtonContiner {
+    margin-bottom: 1.5rem;
+}

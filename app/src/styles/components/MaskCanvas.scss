@@ -1,0 +1,35 @@
+.MaskCanvas {
+    &,
+    .DrawingLayer,
+    .CursorLayer {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        top: 0;
+    }
+
+    &.inactive {
+        pointer-events: none;
+    }
+
+    #drawing-mode-indicator {
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 2px 5px;
+        background-color: rgba(0, 0, 0, 0.342);
+        pointer-events: none;
+    }
+}
+
+.DrawingLayer,
+.CursorLayer {
+    z-index: 3;
+}
+
+.CursorLayer {
+    z-index: 4;
+}

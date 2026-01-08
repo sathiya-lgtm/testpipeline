@@ -1,0 +1,536 @@
+@use '../../../styles/abstracts/colors' as *;
+@use 'sass:color';
+
+$row-color: color.adjust(rgba(125, 125, 125, 0.25), $lightness: -20%);
+$row-hover-color: rgba(125, 125, 125, 0.25);
+$row-height: 50px;
+
+/* Animations */
+@keyframes floating-updown-color-switch {
+    0% {
+        transform: translateY(0);
+        background-color: transparent;
+    }
+
+    50% {
+        transform: translateY(-10px);
+        background-color: $charcoal;
+    }
+
+    100% {
+        transform: translateY(0);
+        background-color: transparent;
+    }
+}
+
+/* SASS */
+.grid {
+    user-select: none;
+    margin-top: 10px;
+    width: 100%;
+    border-spacing: 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 5px;
+}
+
+.grid-header {
+    background-color: $charcoal;
+    min-height: $row-height;
+}
+
+.grid-column {
+    height: $row-height;
+    cursor: pointer;
+    color: $slate;
+    &:hover {
+        color: white;
+    }
+}
+
+.grid-checkbox-column {
+    height: 50px;
+    width: 50px;
+    vertical-align: center;
+    text-align: center;
+    font-size: 1.4em;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+        color: white;
+    }
+}
+
+.grid-checkbbox-column-icon {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.grid-icon-column {
+    font-size: 1.4em;
+    background-color: transparent;
+    width: 50px;
+    height: $row-height;
+    cursor: pointer;
+    color: $slate;
+    vertical-align: middle;
+    text-align: center;
+    &:hover {
+        svg {
+            color: white;
+        }
+    }
+}
+
+.grid-body {
+    background-color: $row-color;
+    min-height: $row-height;
+    height: auto;
+}
+
+.grid-body-loading {
+    position: relative;
+    width: 100%;
+    tr {
+        height: $row-height;
+        td {
+            position: relative;
+            left: 20px;
+            color: white;
+            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            &::before {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                background-color: inherit;
+            }
+        }
+    }
+}
+
+.grid-body-no-data {
+    background-color: $row-color;
+    min-height: $row-height;
+    height: auto;
+    tr {
+        height: $row-height;
+        td {
+            padding-left: 10px;
+        }
+    }
+}
+
+.grid-row {
+    background-color: transparent;
+    height: $row-height;
+    cursor: pointer;
+    &:hover {
+        background-color: $row-hover-color;
+    }
+}
+
+.grid-expandable-row {
+    width: 100%;
+    background-color: transparent;
+    height: $row-height;
+    cursor: pointer;
+    &:hover {
+        background-color: $row-hover-color;
+    }
+}
+
+.grid-expandable-toggle {
+    font-size: 1.4em;
+    vertical-align: center;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+.grid-expandable-row-content {
+    padding: 0px;
+    height: 0px;
+    .grid {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+.grid-expandable-row-content-expanded {
+    height: auto;
+    min-height: 200px;
+    color: white;
+    td {
+        background-color: color.adjust($row-color, $lightness: 5%);
+    }
+    .grid {
+        margin: 10px;
+        padding: 0px;
+        width: calc(100% - 20px);
+        .grid-select-cell {
+            select {
+                outline: none;
+                border-radius: 5px;
+                margin-left: 10px;
+                width: calc(100% - 20px);
+                border: solid 1pt $slate;
+                color: $slate;
+                background-color: transparent;
+                min-height: 40px;
+                padding-left: 10px;
+                option {
+                    width: 100%;
+                    color: $slate;
+                    background-color: $graphite-light;
+                }
+            }
+        }
+    }
+}
+
+.grid-new-row {
+    height: auto;
+    min-height: $row-height;
+}
+
+.grid-cell {
+    user-select: none;
+    color: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.grid-cell-text {
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.grid-cell-text-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+    height: 38px;
+    color: white;
+    background-color: $graphite;
+}
+
+.grid-cell-select-input {
+    border: solid 1pt $slate;
+    height: 38px;
+    width: 100%;
+    color: white;
+    background-color: $graphite;
+}
+
+.cell-editable {
+    &:hover {
+        cursor: pointer;
+        color: $highlight-blue;
+        text-decoration: underline;
+    }
+}
+
+.grid-empty-cell {
+    color: inherit;
+}
+
+.grid-cell-size-normal {
+    max-width: 100px;
+}
+
+.grid-cell-size-xsmall {
+    max-width: 50px;
+}
+
+.grid-cell-size-small {
+    max-width: 75px;
+}
+
+.grid-cell-size-medium {
+    max-width: 150px;
+}
+
+.grid-cell-size-large {
+    max-width: 300px;
+}
+
+.grid-cell-size-xlarge {
+    max-width: 600px;
+}
+
+.grid-cell-size-xxlarge {
+    max-width: 1200px;
+}
+
+.grid-select-cell {
+    select {
+        outline: none;
+        border-radius: 5px;
+        margin-left: 10px;
+        width: calc(100% - 20px);
+        border: solid 1pt $slate;
+        color: $slate;
+        background-color: transparent;
+        min-height: 40px;
+        padding-left: 10px;
+        option {
+            width: 100%;
+            color: $slate;
+            background-color: $graphite-light;
+        }
+    }
+}
+
+.grid-icon-cell {
+    vertical-align: center;
+    text-align: center;
+    font-size: 1.4em;
+    user-select: none;
+    cursor: pointer;
+}
+
+.grid-toggle-cell {
+    user-select: none;
+    cursor: pointer;
+    color: inherit;
+    text-align: center;
+}
+
+.grid-checkbox-cell {
+    vertical-align: center;
+    text-align: center;
+    font-size: 1.4em;
+    user-select: none;
+    cursor: pointer;
+}
+
+.grid-input-cell {
+    height: 50px;
+    input {
+        border-radius: 5px;
+        min-height: 40px;
+        outline: none;
+        color: white;
+        border: solid 1pt $slate;
+        background-color: transparent;
+        margin-left: 10px;
+        width: calc(100% - 20px);
+        padding-left: 10px;
+    }
+}
+
+.grid-status-cell {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 0;
+    height: 50px;
+    min-width: 85px;
+    .grid-status-cell-icon {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        transition-property: width, height;
+        transition-duration: 1s;
+        transition-delay: 0.1s;
+        .grid-status-cell-text {
+            padding: 5px;
+            font-size: 0px;
+            opacity: 0;
+            transition-property: font-size, opacity;
+            transition-duration: 0.5s;
+            transition-delay: 0.25s;
+        }
+        &:hover {
+            padding: 5px;
+            border-radius: 4px;
+            width: 80px;
+            height: 25px;
+            transition-property: width, height;
+            transition-duration: 0.5s;
+            transition-delay: 0.1s;
+            .grid-status-cell-text {
+                font-size: 0.85em;
+                opacity: 1;
+                transition-property: font-size, opacity;
+                transition-duration: 0.5s;
+                transition-delay: 0.25s;
+            }
+        }
+    }
+}
+
+.cell-left {
+    text-align: left;
+
+    .grid-column-text {
+        margin: 0px;
+        margin-left: 10px;
+        width: 100px;
+    }
+
+    .grid-cell-text {
+        margin: 0px;
+        margin-left: 10px;
+    }
+}
+
+.cell-center {
+    text-align: center;
+    .grid-column-text {
+        margin: 0px;
+    }
+    .grid-cell-text {
+        margin: 0px;
+    }
+}
+
+.cell-right {
+    text-align: right;
+
+    .grid-column-text {
+        margin: 0px;
+        margin-right: 10px;
+    }
+
+    .grid-cell-text {
+        margin: 0px;
+        margin-right: 10px;
+    }
+}
+
+.load-bar {
+    display: grid;
+    grid-template-rows: 50px;
+    grid-template-columns: 25px 25px 25px 25px 25px 25px;
+    max-width: 50px;
+    max-height: 300px;
+}
+
+.load-column-1 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    width: 50px;
+    height: 50px;
+}
+
+.load-column-2 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    width: 50px;
+    height: 50px;
+}
+
+.load-column-3 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+    width: 50px;
+    height: 50px;
+}
+
+.load-column-4 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 4 / 5;
+    width: 50px;
+    height: 50px;
+}
+
+.load-column-4 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 4 / 5;
+    width: 50px;
+    height: 50px;
+}
+
+.load-column-5 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 5 / 6;
+    width: 50px;
+    height: 50px;
+}
+
+.load-column-6 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 6 / 7;
+    width: 50px;
+    height: 50px;
+}
+
+.load-sphere {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    animation: floating-updown-color-switch 3s ease-in-out infinite;
+}
+
+.c1 {
+    animation-delay: 0s;
+}
+
+.c2 {
+    animation-delay: 0.5s;
+}
+
+.c3 {
+    animation-delay: 1s;
+}
+
+.c4 {
+    animation-delay: 1.5s;
+}
+
+.c5 {
+    animation-delay: 2s;
+}
+
+.c6 {
+    animation-delay: 2.5s;
+}

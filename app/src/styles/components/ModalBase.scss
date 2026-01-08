@@ -1,0 +1,134 @@
+@use '../../styles/abstracts/colors' as *;
+
+.ModalBase {
+    z-index: 99;
+    position: absolute;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    transition: background-color 1s linear, background-image 1s linear;
+    overflow-y: auto;
+    background-color: $graphite;
+    margin: 1rem 0 1rem 0;
+    background-color: $graphite-light;
+    max-height: calc(100% - 80px);
+
+    &::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+        height: 12px; /* Height of the scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Background of the scrollbar track */
+        border-radius: 10px; /* Rounded corners for the track */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888; /* Color of the scrollbar thumb */
+        border-radius: 10px; /* Rounded corners for the thumb */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Color when hovered */
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: white;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background-color: $graphite;
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        #x-button {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: $slate;
+            font-family: bold;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+        }
+
+        #x-button:hover,
+        #x-button:active {
+            color: white;
+        }
+
+        #x-button:active {
+            scale: 0.9;
+        }
+    }
+
+    &.sharp-edges {
+        border-radius: 0;
+        padding: 30px 0 60px 0;
+
+        h2 {
+            font-size: 1rem;
+            font-family: light;
+        }
+    }
+
+    .modal-content {
+        height: 100%;
+        width: 100%;
+
+        h3 {
+            color: white;
+            padding: 0;
+            margin: 10px 0px 35px 0px;
+
+            &.center {
+                text-align: center;
+            }
+        }
+
+        p {
+            &.center {
+                text-align: center;
+            }
+        }
+
+        .checkbox-label {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+
+            .checkbox {
+                height: 1.15em;
+                width: 1.15em;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.ModalBase.sm {
+    max-width: 500px;
+}

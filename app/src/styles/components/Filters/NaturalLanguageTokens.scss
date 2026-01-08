@@ -1,0 +1,30 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.search-token {
+    padding: 0.3rem 0.75rem;
+    border-radius: 1rem;
+    background: black;
+    display: inline-block;
+    margin: 0.25rem;
+}
+
+.invalid-camera {
+    color: red;
+}
+
+.natural-language-tokens {
+    margin-top: 1.5rem;
+    max-width: 800px;
+
+    .label {
+        color: $text-secondary;
+    }
+
+    .dates {
+        display: flex;
+    }
+
+    .token-category {
+        margin-bottom: 1rem;
+    }
+}

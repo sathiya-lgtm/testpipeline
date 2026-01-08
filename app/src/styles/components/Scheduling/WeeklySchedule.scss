@@ -1,0 +1,58 @@
+@use '../../abstracts/colors' as *;
+
+.weeklySchedule {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    .dayBlock {
+        flex: 1;
+        border: 1px solid $slate;
+
+        .dayHeader {
+            border-bottom: 1px solid $slate;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .dayBody {
+            min-height: 2.5rem;
+        }
+    }
+
+    .event {
+        text-align: center;
+        position: absolute;
+        bottom: 1px;
+        white-space: nowrap;
+        font-size: 10px;
+        background: $evolon-blue;
+        padding: 0.4rem 0.25rem;
+        overflow: hidden;
+        border-radius: 3px;
+    }
+
+    .splitEventStart {
+        position: absolute;
+        bottom: 1px;
+        white-space: nowrap;
+        font-size: 10px;
+        background: $evolon-blue;
+        padding: 0.4rem 0.25rem;
+        overflow: hidden;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .splitEventEnd {
+        position: absolute;
+        bottom: 1px;
+        white-space: nowrap;
+        font-size: 10px;
+        background: $evolon-blue;
+        padding: 0.4rem 0.25rem;
+        overflow: hidden;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}

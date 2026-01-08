@@ -1,0 +1,111 @@
+@use '../../abstracts/colors' as *;
+@use 'sass:color';
+
+.exceptions-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        background-color: $graphite-light;
+        margin-bottom: 15px;
+    }
+
+    th {
+        position: relative;
+        color: $text-secondary;
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+        pointer-events: none;
+
+        &.sortable {
+            cursor: pointer;
+            pointer-events: auto;
+
+            &:hover {
+                color: color.adjust($text-secondary, $lightness: 50%);
+                background-color: color.adjust($graphite-light, $lightness: 3%);
+
+                & .dropdown-arrow {
+                    fill: color.adjust($text-secondary, $lightness: 50%);
+                }
+            }
+        }
+
+        .dropdown-arrow {
+            width: 12px;
+            margin-right: 5px;
+            fill: $text-secondary;
+
+            &.unsorted {
+                transform: rotate(-90deg);
+            }
+
+            &.asc,
+            &.desc {
+                fill: $highlight-blue;
+            }
+
+            &.asc {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .th-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .asc ~ .column-title,
+        .desc ~ .column-title {
+            color: $highlight-blue;
+        }
+    }
+
+    td {
+        position: relative;
+        padding: 0.4rem 1.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    tbody {
+        tr {
+            &:hover {
+                background: rgba(125, 125, 125, 0.4);
+            }
+        }
+    }
+
+    .icon {
+        margin: 0px 5px;
+        fill: $offWhite;
+    }
+
+    .edit-icon {
+        cursor: pointer;
+        width: 25px;
+        margin-right: 20px;
+        &:hover {
+            filter: brightness(1.4);
+        }
+    }
+
+    .delete-icon {
+        cursor: pointer;
+        width: 25px;
+        fill: $evolon-red;
+        &:hover {
+            filter: brightness(1.4);
+        }
+    }
+
+    .control-icon {
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(1.4);
+        }
+    }
+}

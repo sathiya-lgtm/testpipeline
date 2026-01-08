@@ -1,0 +1,129 @@
+@use '../../abstracts/colors' as *;
+
+.groupList {
+    margin-left: 2rem;
+    padding-top: 0.5rem;
+    cursor: pointer;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        border-top: 1px solid #bdc3c7;
+        border-left: 1px solid #bdc3c7;
+        height: 100%;
+        width: 1.2rem;
+        position: absolute;
+
+        bottom: -1.1rem;
+        left: -1.6rem;
+    }
+
+    &:last-child:before {
+        border-left: none;
+    }
+
+    .icon {
+        height: 16px;
+        fill: $text-secondary;
+        margin-right: 10px;
+    }
+
+    .title {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        .name {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: visible;
+
+            .name-label {
+                margin-right: 10px;
+                position: relative;
+            }
+
+            .site-menu-toggle {
+                position: relative;
+                overflow: visible;
+            }
+        }
+    }
+
+    .groupListContent {
+        position: relative;
+
+        .siteListTreeLineStart {
+            display: block;
+            position: absolute;
+            height: 1rem;
+            border-left: 1px solid #bdc3c7;
+            top: 1px;
+            left: 0.4rem;
+        }
+
+        .cameraLinkTreeLineStart {
+            display: block;
+            position: absolute;
+            height: 0.7rem;
+            border-left: 1px solid #bdc3c7;
+            left: 1.2rem;
+        }
+    }
+}
+
+.groupListHeader {
+    color: $offWhite;
+    font-family: medium;
+
+    &:hover {
+        color: white;
+    }
+
+    .minus-sign,
+    .plus-sign {
+        font-weight: bold;
+        margin-right: -8px;
+    }
+
+    .minus-sign {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .plus-sign {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
+
+.groupList.open {
+    .groupListHeader {
+        color: white;
+    }
+
+    .icon {
+        fill: white;
+    }
+
+    .groupListContent {
+        height: auto;
+        opacity: 1;
+    }
+}
+
+.groupList.closed {
+    .groupListContent {
+        height: 0;
+        overflow: hidden;
+        transition: all 1s;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,283 @@
+@use '../abstracts/colors' as *;
+
+.DealerChecklist {
+    #title {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0;
+    }
+
+    .table-container {
+        position: relative;
+        overflow: auto;
+        max-height: 850px;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0px;
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            #dealer-search {
+                // TODO: Marked as important to overwrite inline style, should remove inline style later.
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
+.EditDealerProfileModal {
+    max-width: 1000px;
+    max-height: calc(100% - 130px);
+}
+
+.section-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px auto;
+    border: solid 1pt #6a737b;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    .section-container-header {
+        display: grid;
+        grid-template-columns: auto auto 150px;
+        grid-template-rows: 50px;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        border-radius: 10px;
+        // border-bottom: solid 1pt #6a737b;
+        box-shadow: rgba(0, 0, 0, 0.45) 2px 2px 4px;
+        cursor: pointer;
+
+        .section-container-header-caption {
+            padding-left: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+        .section-container-header-toolbar {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-end;
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+
+            .section-node-toolbar-button {
+                cursor: pointer;
+                font-size: 1.4em;
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 50px;
+                &:hover {
+                    color: $highlight-blue;
+                    transition-property: color;
+                    transition-duration: 0.5s;
+                    transition-delay: 0.1s;
+                    transition-timing-function: ease-in-out;
+                }
+
+                .deleteIcon {
+                    width: 30px;
+                    fill: #ba2125;
+                }
+            }
+        }
+
+        .section-container-header-toggle {
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: pointer;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-end;
+            grid-row: 1 / 2;
+            grid-column: 3 / 4;
+            color: #fff;
+            transition-property: color;
+            transition-timing-function: ease-in-out;
+            transition-duration: 0.5s;
+            transition-delay: 0.1s;
+
+            svg {
+                margin-right: 10px;
+                transition-property: transform;
+                transition-duration: 0.5s;
+                transition-delay: 0.1s;
+                transform: rotate(0);
+            }
+        }
+    }
+
+    .section-container-header:hover,
+    .active-header {
+        background-color: #38bdf8;
+    }
+
+    .active-header {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .section-container-body {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        background-color: transparent;
+        padding: 20px;
+        border-top: solid 1pt #6a737b;
+
+        .section-node {
+            -webkit-user-select: none;
+            user-select: none;
+            // cursor: pointer;
+            // display: grid;
+            // grid-template-columns: 50px auto auto 50px;
+            // grid-template-rows: 50px auto;
+            width: 100%;
+            background-color: transparent;
+            transition-property: background-color;
+            transition-timing-function: ease-in-out;
+            transition-duration: 0.5s;
+            transition-delay: 0.1s;
+
+            // .authorized-office-personnel {
+            //     border: solid 1pt #6a737b;
+            //     padding: 20px;
+            // }
+        }
+    }
+}
+
+.schedule-hours-template {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    // margin-bottom: 2rem;
+    margin-bottom: 20px;
+    border: solid 1pt #6a737b;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+
+    .select {
+        margin-top: 5px;
+    }
+
+    .license-input {
+        margin-bottom: 0px !important;
+    }
+
+    .timeSelectsContainer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 30px;
+        gap: 1rem;
+    }
+
+    .licenseDetailsContainer {
+        grid-template-columns: minmax(0, 1fr) 30px;
+    }
+
+    .deleteMonitorBlockContainer {
+        padding-top: 22px;
+        max-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .deleteIcon {
+            cursor: pointer;
+            width: 30px;
+            fill: $evolon-red;
+            &:hover {
+                filter: brightness(1.4);
+            }
+        }
+    }
+
+    .timeBlocksButtonContainer {
+        // margin-bottom: 2rem;
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+.report-options {
+    margin-bottom: 20px;
+}
+
+.checkbox-spacing {
+    padding-bottom: 10px;
+
+    .checkbox-label {
+        padding-left: 10px;
+    }
+
+    input {
+        transform: scale(1.5);
+    }
+}
+
+.timeSelectsContainer .reportEmail {
+    justify-content: flex-start;
+}
+
+.dealerNote {
+    color: #e65454;
+}
+
+.report-email-template {
+    border: solid 1pt #6a737b;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+
+    .report-email-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        .deleteMonitorBlockContainer {
+            padding-top: 22px;
+            max-height: 60px;
+            display: flex;
+            align-items: center;
+
+            .deleteIcon {
+                cursor: pointer;
+                width: 30px;
+                fill: $evolon-red;
+                &:hover {
+                    filter: brightness(1.4);
+                }
+            }
+        }
+    }
+
+    p {
+        margin-top: 0px;
+    }
+}

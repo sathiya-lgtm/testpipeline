@@ -1,0 +1,683 @@
+@use '../../../abstracts/colors' as *;
+
+.cameraView {
+    position: relative;
+    height: 100%;
+
+    .tooltip {
+        &::before {
+            width: auto;
+        }
+    }
+
+    .edgeVersionAndStatusContainer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+
+        .status-badge {
+            padding: 0.3rem 0.75rem;
+            border-radius: 1rem;
+            background: black;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            font-size: 14px;
+
+            &.ONLINE {
+                background: $evolon-green;
+                color: black;
+            }
+
+            &.OFFLINE {
+                background: $evolon-red;
+            }
+
+            &.UNKNOWN {
+                background: $evolon-error;
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .monitorModeContainer {
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: center;
+
+        p {
+            margin: 0;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.75rem;
+            border-radius: 1rem;
+            background: $evolon-green;
+            color: black;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            font-size: 14px;
+        }
+    }
+
+    .camera-name {
+        width: 100%;
+        margin-top: 0;
+        color: $offWhite;
+        font-size: 1.3rem;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+        .placeholderCameraText {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .autoplay-clip-data {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 1.3rem;
+        color: $text-secondary;
+        font-size: 1.1rem;
+        text-align: center;
+
+        span {
+            color: $offWhite;
+        }
+    }
+
+    .cameraOverviewSection {
+        position: relative;
+        min-height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-left: 0px;
+        padding-top: 2rem;
+
+        figure {
+            height: auto;
+            width: 100%;
+            margin-right: 365px;
+
+            .video-container {
+                position: relative;
+                line-height: 0;
+            }
+
+            // .video-container.skeleton {
+            //     aspect-ratio: 16/9;
+            // }
+
+            #video-not-found {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                aspect-ratio: 16/9;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.315);
+                color: $offWhite;
+
+                .title {
+                    font-size: 1.8rem;
+                }
+            }
+
+            .camera-config-footer {
+                display: flex;
+
+                li {
+                    position: relative;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 4px;
+                }
+
+                .event-type-menu {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    gap: 1rem;
+
+                    .globalToggleContainer {
+                        display: flex;
+                        align-items: center;
+                        gap: 1.5rem;
+
+                        .icon-container {
+                            cursor: pointer;
+                            fill: grey;
+                        }
+
+                        .icon {
+                            height: 30px;
+                            width: auto;
+
+                            &.mask {
+                                height: 45px;
+                                path {
+                                    fill: grey !important;
+                                }
+                            }
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            &.active {
+                                path,
+                                rect,
+                                polygon {
+                                    fill: white !important;
+                                }
+                            }
+                        }
+                    }
+
+                    .smtp-email-display {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .copyEmailBtn {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-left: 15px;
+
+                        .icon {
+                            fill: white;
+                        }
+                    }
+
+                    .live-view-toggle-container {
+                        display: flex;
+                        align-items: center;
+
+                        .live-view-toggle-label {
+                            margin-right: 0.75rem;
+                        }
+                    }
+                }
+
+                .watch-live-container {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    #watch-live-button {
+                        opacity: 0.6;
+                        color: white;
+                        font-size: 1rem;
+                        padding: 4px 30px;
+                        border-radius: 3px;
+                        border: 1px solid $highlight-blue;
+                        background-color: transparent;
+                        cursor: pointer;
+                        width: 100%;
+                    }
+
+                    .unavailable:hover::before {
+                        content: 'Feature currently unavailable.';
+                        position: absolute;
+                        top: 0px;
+                        left: calc(50% - 90px);
+                        width: 100%;
+                        padding: 3px;
+                        color: $offWhite;
+                        font-size: 0.8rem;
+                        border-radius: 3px;
+                        background-color: black;
+                    }
+                }
+            }
+        }
+
+        .panel-info-container {
+            display: flex;
+            justify-content: center;
+
+            .panel-info-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+
+                .label {
+                    color: $text-secondary;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                .copyEmailBtn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 15px;
+
+                    .icon {
+                        fill: white;
+                    }
+                }
+            }
+
+            .panel-info-authorize {
+                display: flex;
+                flex-flow: column nowrap;
+                min-width: 400px;
+
+                .panel-info-authorize-label {
+                    font-size: 110%;
+                    padding: 10px;
+                    padding-left: 0px;
+                    padding-right: 0px;
+                    width: 100%;
+                    color: white;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .side-items {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 315px;
+            margin: 0;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            height: 100%;
+            overflow: auto;
+            background-color: #2b3131;
+
+            h2 {
+                background-color: rgba(0, 0, 0, 0.5);
+                margin: 0;
+                text-align: center;
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            li {
+                position: relative;
+                margin: 5px 0px;
+                padding: 10px 15px;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 4px;
+
+                p {
+                    margin-top: 0;
+                }
+
+                &:hover::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 100%;
+                    top: 0;
+                    left: -5px;
+                    border-left: 5px solid $highlight-blue;
+                }
+            }
+
+            // ? -------- Adjust the appearance of disabled side items, including hover text --------
+            .disabled {
+                opacity: 0.5;
+
+                &:hover::before {
+                    display: none;
+                }
+
+                & > * {
+                    pointer-events: none;
+                }
+
+                & input {
+                    color: $steel;
+                    --track-color: #5c5c5c;
+                }
+                & p.subtext.percentage {
+                    opacity: 0;
+                } //Immix request to applied to all disabled
+
+                &.text {
+                    &:hover::after {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        padding: 25px;
+                        border-radius: 4px;
+                        background-color: rgb(0, 0, 0);
+                    }
+
+                    &.camera-color-model-menu {
+                        &:hover::after {
+                            content: 'You must configure camera type within your Milestone system.';
+                        }
+                    }
+
+                    &.confidence-threshold.edge {
+                        &:hover::after {
+                            content: 'You must configure AI Confidence within your Edge system.';
+                        }
+                    }
+
+                    &.confidence-threshold.milestone {
+                        &:hover::after {
+                            content: 'You must configure AI Confidence within your Milestone system.';
+                        }
+                    }
+
+                    &.confidence-threshold.immix {
+                        &:hover::after {
+                            content: 'You must configure AI Confidence within your Immix system.';
+                        }
+                    }
+
+                    &.ai-mask.milestone {
+                        &:hover::after {
+                            content: 'You must configure Masking within your Milestone system.';
+                        }
+                    }
+
+                    &.ai-mask.edge {
+                        &:hover::after {
+                            content: 'You must configure Masking within your Edge system.';
+                        }
+                    }
+
+                    &.motion-confidence.milestone {
+                        &:hover::after {
+                            content: 'This option is not available for Milestone events.';
+                        }
+                    }
+
+                    &.premium-features-container {
+                        &:hover::after {
+                            content: 'This feature is disabled in Insites. See your Edge system for configuration settings.';
+                        }
+                    }
+                }
+            }
+
+            .settingsButtonContainer {
+                padding: 2rem;
+
+                button {
+                    margin-bottom: 1.2rem;
+                }
+
+                .iconButtonInner {
+                    position: relative;
+
+                    .buttonIcon {
+                        fill: white;
+                        width: 1rem;
+                        position: absolute;
+                        right: 0;
+                        top: 1px;
+                    }
+                }
+            }
+
+            .alert-menu {
+                p {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .alert-icon {
+                    fill: white;
+                    width: 25px;
+                }
+            }
+
+            .camera-color-model-menu {
+                p {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .camera-icon {
+                    fill: white;
+                    width: 25px;
+                }
+            }
+
+            .motion-confidence {
+                .slider-container {
+                    position: relative;
+                    margin-top: 10px;
+                }
+
+                label > div {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-bottom: 15px;
+                }
+
+                #motion-confidence-label-text {
+                    margin: 0;
+                }
+
+                #tooltip-icon {
+                    cursor: pointer;
+                    width: clamp(10px, 10%, 20px);
+                    margin-left: 20px;
+                    fill: $evolon-blue;
+
+                    &:hover {
+                        filter: brightness(1.4);
+                    }
+
+                    &:active {
+                        scale: 0.8;
+                    }
+                }
+
+                #sensitivity-levels {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 5px;
+                }
+
+                #sensitivity-levels > div {
+                    font-size: 0.78rem;
+                    color: $text-secondary;
+                }
+
+                #sensitivity-levels > div.highlight {
+                    color: $highlight-blue;
+                }
+
+                #set-motion-confidence-button {
+                    width: 100%;
+                }
+            }
+
+            .sliding-number {
+                position: absolute;
+                color: $highlight-blue;
+            }
+
+            .subtext-container {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                > span {
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+                > span:nth-of-type(1) {
+                    gap: 10px;
+                    justify-content: flex-start;
+                }
+
+                > span:nth-of-type(2) {
+                    justify-content: space-around;
+                }
+
+                .Toggle {
+                    margin-left: 50px;
+                }
+
+                .icon.person {
+                    width: clamp(10px, 10%, 15px);
+                }
+
+                .icon.vehicle {
+                    width: clamp(10px, 15%, 20px);
+                }
+            }
+
+            .subtext {
+                font-size: 0.9rem;
+                margin-top: 0.5rem;
+            }
+
+            .subtext.percentage {
+                color: $text-secondary;
+                min-width: 40px;
+            }
+
+            .subtext.title {
+                color: $offWhite;
+            }
+        }
+
+        .brush-type-button-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 10px 0px;
+
+            button.brush-type {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                width: 50px;
+                margin: 0px 10px;
+                border: 0;
+                border-radius: 4px;
+                background-color: transparent;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 4px;
+            }
+
+            button.brush-type:hover {
+                scale: 1.1;
+            }
+
+            button.brush-type:active,
+            button.brush-type.selected {
+                background-color: $highlight-blue;
+            }
+
+            button.brush-type:hover > .icon,
+            button.brush-type:active > .icon,
+            button.brush-type.selected > .icon {
+                fill: $offWhite;
+            }
+
+            .icon {
+                width: 65%;
+            }
+        }
+
+        .clear-mask-container-2 {
+            padding-top: 1.5rem;
+            padding-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .clear-mask-container {
+            padding-top: 1.5rem;
+            padding-bottom: 2rem;
+            text-align: right;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+
+            .btn.small {
+                padding-left: 2px;
+                padding-right: 2px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+        }
+
+        #edit-camera-button {
+            width: 100%;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                transform: translateY(1px);
+            }
+
+            .edit-icon {
+                fill: white;
+                width: 20px;
+                margin-right: 12px;
+            }
+        }
+
+        #premium-features-button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #premium-features-button {
+            width: 100%;
+            margin: 0;
+            color: $charcoal;
+            background-color: $evolon-green;
+            border: none;
+        }
+    }
+}

@@ -1,0 +1,155 @@
+@use 'sass:color';
+@use '../../styles/abstracts/colors' as *;
+
+
+$base-color: $graphite;
+$border-color: color.adjust($color: $base-color, $lightness: 10%);
+$shadow-color: color.adjust($color: $base-color, $lightness: -10%);
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-down {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.alarm-vision-form {
+    display: grid;
+    grid-template-columns: 475px;
+    grid-template-rows: auto;
+    padding: 10px;
+
+    .form-label {
+        display: grid;
+        grid-template-columns: 50% 50%;    
+        grid-template-rows: 38px;
+        align-items: center;
+        
+        label {
+            justify-self: start;
+            color: $slate;
+        }
+
+        span {
+            color: white;
+        }
+    }
+
+    .form-input {
+        margin-top: 10px;
+    }
+
+    .form-check {
+        margin: -10px;
+        margin-top: 5px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: start;
+        justify-content: start;
+        .form-check-icon {
+            width: 25px;
+            height: 25px;
+            color: $evolon-green;
+        }
+        
+        .form-check-label {
+            color: white;
+        }
+    }
+
+
+    .section-title {
+        font-size: 110%;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        margin-top: 10px;
+        justify-self: start;
+        width: 100px;
+    }
+}
+
+.alarm-vision {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;;
+    width: 100vw;
+    height: calc(100vh - 55px);
+    overflow: auto;
+}
+
+.alarm-vision-dialog {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    border: solid 1pt $border-color;
+    box-shadow: 1pt 1pt 10pt $shadow-color;
+}
+
+.alarm-vision-header {
+    width: 100%;
+    font-size: 110%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 10px;
+    border-bottom: solid 1pt $slate;
+    box-shadow: 1pt 1pt 10pt $shadow-color;
+}
+
+.alarm-vision-body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 25px;
+}
+
+.alarm-vision-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: end;
+    min-height: 100px;
+    padding: 25px;
+    width: 100%;
+    .btn {
+        margin-left: 10px;
+    }
+}
+
+.error {
+    color: $evolon-red;
+}

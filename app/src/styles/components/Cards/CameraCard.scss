@@ -1,0 +1,51 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.cameraCard {
+    margin-right: 20px;
+    cursor: pointer;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        h4 {
+            margin: 0;
+            color: $highlight-blue;
+        }
+
+        p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .cameraThumbnail {
+        width: 270px;
+        height: 152px;
+    }
+
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4px;
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+
+            path,
+            rect,
+            circle,
+            polygon {
+                fill: rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}

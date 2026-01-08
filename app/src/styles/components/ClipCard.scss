@@ -1,0 +1,29 @@
+@use '../../styles/abstracts/colors' as *;
+
+.clip-container {
+    background-color: rgba(20, 20, 20, 0.9);
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    padding: 25px;
+
+    h2 {
+        font-size: 1.4rem;
+        text-align: left;
+        margin: 0;
+    }
+
+    .clip-details {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+
+        .date {
+            margin-bottom: 1rem;
+        }
+
+        .detected-events {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

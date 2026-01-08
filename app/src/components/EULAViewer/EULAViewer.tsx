@@ -1,0 +1,80 @@
+import React, { FC, useState, useRef } from 'react';
+
+// Styles
+import '../../styles/components/EULAViewer/EULAViewer.scss';
+
+
+const EULAViewer: FC = () => {
+    return (
+        <div className="eula">
+            <h1>
+                END USER LICENSE AGREEMENT
+            </h1>
+            <p>
+                THIS END USER LICENSE AGREEMENT (EULA or Agreement) sets forth the provisions under which Evolon Technology, Inc. (“Evolon”) is willing to grant you, a single individual or business entity,  (“End User”) certain licenses to Evolon Insites software (collectively, the “Software”) consisting of such Software as Evolon initially or subsequently provides. 
+            </p>
+            <p>
+                Evolon grants End User a revocable, non-exclusive, non-transferable, limited right to install and use Software strictly in accordance with the terms and conditions of this EULA. 
+            </p>
+            <p>
+                The Software is licensed, not sold, to End User by Evolon and Evolon reserves all rights not expressly granted to you.  All right, title, and interest in the Software including without limitation all patent rights, copyrights and other intellectual property rights thereto, is retained by Evolon. End User (including your employees) may access Software subject to the restrictions herein solely for your internal business purposes only.
+            </p>
+            <p>
+                Notwithstanding the terms and conditions of this EULA, all or any portion of the Software which constitutes Third-Party Materials is licensed to you subject to the terms and conditions of the software licenses or electronic license terms accepted at time of download. Use of Third Party Materials by you shall be governed entirely by the terms and conditions of such license.
+            </p>
+            <p>
+                End User shall use the Software strictly in accordance with the terms of the monitoring services agreement between you and a video security monitoring service provider (which may be Evolon) that provides operability of the Software with your camera system (the “Monitoring Services”).  End User shall not: a) copy, distribute, license, sell, lease, lend, decompile or reverse engineer the Software; b) modify, adapt, improve or create a derivative work from the Software; or c) use the Software to violate any laws, rules or regulations, including any right of privacy of any third party.
+            </p>
+            <p>
+                Consent to Record, Disclose, and Use Contents of Audio & Video Communications and Transmissions. The End User hereby consents to Evolon recording, retrieving, reviewing, copying, storing, disclosing and using the contents of all information related to all telephone, audio, video, wire, oral, electronic, internet, broadband and other forms of transmission or communication to which End User is a party or otherwise provides in connection with use and function of the Software and any related Monitoring Services.
+            </p>
+            <p>
+                End User acknowledges that the Software, firmware,  information, and documentation arising out of or from, in connection with, related to, or resulting from use of the Software are the sole and exclusive property of Evolon, and End User has no rights whatsoever in any of the foregoing.
+            </p>
+            <p>
+                DATA COLLECTION AND AI LEARNING.  The End User hereby agrees that Evolon shall have the perpetual, irrevocable, royalty-free, and exclusive right and license to utilize data capture, syndication and analysis tools, video analysis, machine learning, and other similar tools, to create, extract, compile, synthesize, and analyze, and create derivative works based upon Blind Data.  For purposes of this EULA, “Blind Data” means anonymized, non-personally identifiable data or information resulting from End User’s  access and use of the Software, the Monitoring Services and the processing of Customer Data, and representing only statistics, characteristics and metrics about the Software’s operation, usage, and performance, and machine learning syntheses, including derivatives of video images provided as part of Customer Data, but excluding actual customer specific data values.  For purposes of this Agreement, “Customer Data” means any data or information belonging to End User, including but not limited to proprietary, confidential, and personal identifiable information, that is processed, stored, made available through, or otherwise used or accessed by the Software and/or the Monitoring Services, excluding Blind Data. All rights in Customer Data are solely owned by the End User.    All rights in such Blind Data shall be solely owned by Evolon, and may be used by Evolon for any lawful business purpose without a duty of accounting to End User, provided that the Blind Data is used only in an anonymous and aggregated form without specifically identifying the source of the Blind Data.  Without assuming any obligations or liabilities of End User, Evolon agrees to comply with the applicable U.S. laws and regulations respecting the use of such Blind Data.
+            </p>
+            <p>
+               The Software may contain security measures to prevent unauthorized or illegal use of the Software.  You agree that Evolon may use legal means to enforce compliance with this EULA and any other relevant agreements.  Upon written notice from Evolon, Evolon may terminate access to and/or use of the Software if Evolon believes in its reasonable discretion that your use of the software would violate any provision of these agreements.  Evolon may suspend or deny you access without incurring any resulting obligation or liability if we receive a judicial or other governmental order that expressly or by reasonable implication requires us to do so, or if Evolon believes in good faith that you have failed to comply with the term of this Agreement or that you have been or are about to be involved in fraudulent, misleading or unlawful actives in connection with the Software. 
+            </p>
+            <p>
+                NO WARRANTIES OR REPRESENTATIONS: Evolon does not represent, warrant, covenant or agree that the Software or use of the Software with any Monitoring Services will be uninterrupted or error free or prevent any loss, damage or injury to person or property, by reason of burglary, theft, hold-up, fire, or other cause, or that the Software or any related Monitoring Services will provide the functionality for which it is installed or intended. End User acknowledges and agrees that Evolon is not an insurer, and the End User assumes all risk of bodily injury (including death) and for loss or damage to End User’s premises or its contents. Neither Evolon nor its affiliates, contractors, subsidiaries or parent organization are assuming liability for any bodily injury (including death) or any property loss or damages sustained by End User as a result of or related to burglary, theft, hold-up, fire, smoke, water, weather, war, act of terror, act of God, or any other cause whatsoever. The Software and any related Monitoring Services, all accompanying files, data and materials, are distributed "AS IS" and with no warranties of any kind, whether express or implied.  Except to the extent prohibited or limited by applicable law, Evolon DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, AND ANY WARRANTY OF NON-INFRINGEMENT. The End User assumes all risk of using the Software and the Monitoring Services. This disclaimer of warranties constitutes an essential part of the Agreement.  The Software and Monitoring Services are not intended for use with any system or application where the use or failure of the Software or Monitoring Services can reasonably be expected to threaten or result in personal injury, death or physical or environmental damage. The foregoing disclaimers of warranties constitute an essential part of this EULA.
+            </p>
+            <p>
+                IP Indemnification by Evolon. 
+            </p>
+            <p>
+                Evolon agrees to defend End User against any claim, demand, suit, or proceeding made or brought against End User by a third party alleging that the use of the Software and/or Monitoring Services as permitted hereunder infringes or misappropriates the intellectual property rights of a third party (a “Infringement Claim”), and shall indemnify End User for any damages, reasonable attorney fees and costs finally awarded against End User as a result of, or for amounts paid by End User under a settlement of, an Infringement Claim; provided that End User (i) promptly gives Evolon written notice of the Infringement Claim; (ii) gives Evolon sole control of the defense and settlement of the Infringement Claim (provided that Evolon may not settle any Infringement Claim without End User’s consent (which shall not be unreasonably withheld or delayed) unless the settlement unconditionally releases End User of all liability); and (iii) provides to Evolon the information, authority, and assistance Evolon reasonably needs to defend against or settle the Infringement Claim.  Evolon shall not be obligated to defend or indemnify End User to the extent that such claim, demand, suit, proceeding, loss, liability or expense: (i) is based upon or related to any use of the Software and/or Monitoring Service in combination with any third-party systems or software, hardware, data or other materials not supplied by Evolon and, but for such combination, use of the Software and/or Monitoring Service would be non-infringing; (ii) is based upon or related to any modification to the Software and/or Monitoring Service by any person or entity other than Evolon or without Evolon’s prior consent and approval; (iii) any unauthorized use of the Software and/or Monitoring Services, including any use of the Software or Monitoring Services for a purpose or in a manner for which the Software and/or Monitoring Services were not designed or intended or in breach of the terms of this Agreement; (iv) End User’s failure to modify, update or replace Software or Monitoring Services (or other Evolon-sourced hardware) as required by Evolon; or (v) any trial or evaluation testing use of the Software or Monitoring Services by End User.. Evolon will have no obligation to reimburse End User for attorney fees and costs incurred prior to Evolon’s receipt of notification of the Infringement Claim. The End User, at its own expense, may retain its own legal representation.
+            </p>
+            <p>
+                In the event of an Infringement Claim, or if an Infringement Claim is likely, Evolon may, at its option: (a) obtain for End User the right to continue to use the Software and/or Monitoring Services; (b) replace or modify the Software or Monitoring Services so it becomes non infringing; or (c) if we determine that the alternatives described in items (a) and (b) are not reasonably practicable, Evolon may terminate End User’s rights to use the Software and/or Monitoring Services under this EULA upon written notice to End User.
+            </p>
+            <p>
+                THE FOREGOING IP INDENIMIFICATION SECTION SETS OUT END USER’S SOLE REMEDY WITH RESPECT TO ANY CLAIMS CONCERNING INFRINGEMENT OR MISAPPROPRIATION OF THIRD PARTY INTELLECTUAL PROPERTY RIGHTS
+            </p>
+            <p>
+                LIMITATION OF LIABILITY: END USER UNDERSTANDS AND AGREES THAT THE SOFTWARE AND ANY RELATED MONITORING SERVICES ARE NOT REPRESENTED, WARRANTED, COVENANTED, AGREED OR GUARANTEED TO PREVENT, REDUCE, LIMIT, OR MITIGATE ANY BODILY INJURY OR LOSS OR DAMAGES ARISING OUT OF OR FROM, RELATED TO, OR AS A CONSEQUENCE OF ANY BURGLARY, THEFT, OTHER ACTS OF THIRD PARTIES,  FIRE, SMOKE, WATER OR ANY OTHER CAUSE.  IN ADDITION, IN NO EVENT SHALL EVOLON, OR ITS PRINCIPALS, SHAREHOLDERS, OFFICERS, EMPLOYEES, AFFILIATES, CONTRACTORS, SUBSIDIARIES, OR PARENT ORGANIZATIONS (THE “EVOLON PARTIES”), BE LIABLE FOR ANY INCIDENTAL, CONSEQUENTIAL, PUNITIVE OR ANY OTHER SIMILAR DAMAGES RELATING TO THE USE OF SOFTWARE. UNDER NO CIRCUMSTANCES WILL THE COLLECTIVE AGGREGATE LIABILITY OF THE EVOLON PARTIES ARISING OUT OF OR IN ANY WAY RELATED TO THIS AGREEMENT OR ITS SUBJECT MATTER, INCLUDING THE USE OF THE EVOLON SOFTWARE OR MONITORING SERVICES OR IN ANY WAY RELATED TO THE CUSTOMER DATA OR BLIND DATA EXCEED THE TOTAL AMOUNT PAID BY END USER FOR USE OF THE SOFTWARE OR MONITORING SERVICES IN THE 12 MONTHS PRIOR TO THE EVENT(S) OR CIRCUMSTANCES GIVING RISE TO CLAIM.
+            </p>
+            <p>
+                THE LIMITATIONS OF LIABILITY SET FORTH ABOVE SHALL APPLY NOTWITHSTANDING ANYTHING TO THE CONTRARY HEREIN AND WITH RESPECT TO ANY AND ALL CLAIMS UNDER ANY LEGAL OR EQUITABLE THEORY, WHETHER BASED ON BREACH OF CONTRACT, BREACH OF WARRANTY, VIOLATION OF A STATUTE OR OTHER LAW, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY OR OTHERWISE. THIS LIMITATION OF LIABILITY IS AN ESSENTIAL TERM OF THIS EULA.
+            </p>
+            <p>
+                EACH PROVISION OF THIS EULATHAT PROVIDES FOR A LIMITATION OF LIABILITY, DISCLAIMER OF WARRANTIES, OR EXCLUSION OF DAMAGES IS INTENDED TO AND DOES ALLOCATE THE RISKS (BOTH KNOWN AND UNKNOWN) BETWEEN THE PARTIES UNDER THIS EULA. THIS ALLOCATION IS AN ESSENTIAL ELEMENT OF THE BASIS OF THE BARGAIN BETWEEN THE PARTIES. EACH OF THESE PROVISIONS IS SEVERABLE AND INDEPENDENT OF ALL OTHER PROVISIONS OF THIS EULA. THE LIMITATIONS OF LIABILITY WILL APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW EVEN IF ANY LIMITED REMEDY FAILS OF ITS ESSENTIAL PURPOSE.
+            </p>
+            <p>
+                This EULA remains effective until termination. Evolon shall have the right to terminate this EULA and End User’s access to the Software for any reason with ten (10) days prior written notice.  The EULA will immediately terminate upon notice if End User exceeds the scope of license granted or otherwise fails to comply with the terms of this EULA.  Upon termination of this EULA, End User shall ensure that all uses of the Software ceases.  Unless otherwise terminated by End User for cause, or terminated by Evolon without cause, termination of this EULA will not affect End User’s obligation to pay for products shipped or licenses granted prior to termination, which amounts shall immediately be payable at the date of termination.
+            </p>
+            <p>
+                This EULA shall be governed by and construed in accordance with the laws of the State of Texas, without regard to its conflicts of laws provisions. Any legal action relating to this EULA shall be brought exclusively in the state or federal courts located in Dallas County, Texas.
+            </p>
+            <p>
+                BY CLICKING “I AGREE”, OR TAKING ANY STEP TO INSTALL OR USE THE SOFTWARE, YOU (1) REPRESENT THAT YOU ARE OF THE LEGAL AGE OF MAJORITY IN YOUR STATE, PROVINCE, JURISDICTION AND/OR RESIDENCE AND, IF APPLICABLE, YOU ARE DULY AUTHORIZED BY YOUR EMPLOYER TO ENTER INTO THIS EULA AND (2) YOU AGREE TO BE BOUND BY THE TERMS OF THIS EULA.
+            </p>
+            <p>
+                END USER ACKNOWLEDGES THAT END USER HAS RECEIVED A COPY OF THIS EULA AND HAS READ AND UNDERSTOOD IT, ESPECIALLY THOSE SECTIONS RELATING TO EVOLON’S LIMITED LIABILITY AND WARRANTY, AND END USER’S LICENSE GRANT TO EVOLON TO UTILIZE THE AUDIO/VIDEO INFORMATION PROCESSED BY THE SOFTWARE, IN ADDITION TO OTHER TERMS AND CONDITIONS OF THIS EULA. THE PARTIES AGREE THAT THIS EULA MAY BE ELECTRONICALLY SIGNED AND THAT THE ELECTRONIC SIGNATURES APPEARING ON THIS EULA ARE THE SAME AS HANDWRITTEN SIGNATURES FOR THE PURPOSES OF VALIDITY, ENFORCEABILITY, AND ADMISSABILITY.  IF YOU DO NOT AGREE TO THE TERMS OF THIS EULA, YOU ARE NOT PERMITTED TO INSTALL OR USE THE SOFTWARE OR ANY RELATED MONITORING SERVICES.
+            </p>
+        </div>
+    )
+}
+
+export default EULAViewer

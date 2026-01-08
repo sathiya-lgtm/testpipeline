@@ -1,0 +1,88 @@
+@use '../../styles/abstracts/colors' as *;
+@use '../../styles/abstracts/sizing' as *;
+
+.radioGroup {
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    .radioBtn {
+        margin-left: 30px;
+        margin-right: 15px;
+        display: inline-block;
+
+        input[type='radio'] {
+            display: none;
+        }
+
+        label {
+            cursor: pointer;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        label::before {
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+
+            border-radius: 50%;
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%);
+            transition: border-color 400ms ease-in;
+        }
+
+        label::after {
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%) scale(0);
+            transition: transform 600ms ease;
+        }
+
+        &.primary {
+            label::before {
+                border: 2px solid $highlight-blue;
+                background-color: transparent;
+            }
+
+            label::after {
+                background-color: $highlight-blue;
+                border: 2px solid $highlight-blue;
+            }
+        }
+
+        &.secondary {
+            label::before {
+                border: 2px solid $steel;
+                background-color: rgb(106, 115, 123, 0.5);
+            }
+
+            label::after {
+                background-color: $steel;
+                border: 2px solid $steel;
+            }
+        }
+
+        input[type='radio']:checked + label::after {
+            transform: translateY(-50%) scale(1);
+        }
+    }
+
+    .disabled {
+        &.primary {
+            label::before {
+                opacity: 0.1;
+            }
+
+            label::after {
+                opacity: 0.1;
+            }
+        }
+    }
+}

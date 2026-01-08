@@ -1,0 +1,54 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.settingsModalContent {
+    display: block;
+
+    .settingsNavMenu {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin-right: 40px;
+
+        li {
+            display: flex;
+            position: relative;
+            align-items: center;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+
+            span {
+                margin-left: 40px;
+            }
+
+            .highlighter {
+                position: absolute;
+                width: 0;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background: $highlight-blue;
+            }
+
+            &:hover {
+                background: rgba(145, 145, 140, 0.1);
+            }
+        }
+
+        .selected {
+            background: rgba(145, 145, 140, 0.1);
+            opacity: 1;
+            fill: $offWhite;
+
+            .highlighter {
+                width: 10px;
+            }
+
+            &:hover {
+                background: rgba(145, 145, 140, 0.1);
+            }
+        }
+    }
+}

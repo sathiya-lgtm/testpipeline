@@ -1,0 +1,89 @@
+@use '../../styles/abstracts/colors' as *;
+
+.Camera {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: regular;
+    background-color: $graphite;
+
+
+    .camera-container {
+        max-width: 1200px;
+        margin-top: 50px;
+
+        .camera-info {
+            .last-alert-processed {
+                font-size: 1.1rem;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 2.5rem;
+
+                span {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .filter-container {
+            margin-bottom: 2rem;
+
+            h2 {
+                text-align: center;
+            }
+
+            .time-filter {
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .events-filter {
+                margin-bottom: 2rem;
+                display: flex;
+                justify-content: space-between;
+
+                .events-filter-checkboxes {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 241px;
+                }
+
+                .event-checkbox {
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .filter-submit {
+                text-align: center;
+            }
+        }
+    }
+
+    .preview-vid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        video {
+            height: 75%;
+            width: 90%;
+        }
+    }
+}

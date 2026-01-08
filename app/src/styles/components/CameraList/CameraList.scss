@@ -1,0 +1,70 @@
+@use '../../abstracts/colors' as *;
+
+.cameraTreeContainer {
+    height: 100%;
+    overflow: auto;
+
+    .customerItemName {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: flex;
+
+        &.empty {
+            opacity: 0.5;
+        }
+    }
+
+    .name {
+        text-overflow: ellipsis;
+        /* overflow: hidden; */
+        white-space: nowrap;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        &.empty {
+            opacity: 0.5;
+        }
+    }
+
+    .cameraTree {
+        font-size: 0.65rem;
+
+        @media screen and (min-width: 1280px) {
+            & {
+                font-size: 0.75rem;
+            }
+        }
+
+        .group {
+            padding: 0.5rem 1.2rem;
+        }
+    }
+
+    .edgeStatusBadge {
+        padding: 0.1rem 0.75rem;
+        border-radius: 1rem;
+        background: black;
+        display: inline-block;
+        font-size: 11px;
+        color: white;
+
+        &.offline {
+            background: $evolon-red;
+        }
+
+        &.OFFLINE {
+            background: $evolon-red;
+        }
+
+        &.ONLINE {
+            background: $evolon-green;
+            color: black;
+        }
+
+        &.UNKNOWN {
+            background: $evolon-error;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@use '../../abstracts/colors' as *;
+
+.ManualArmingModalBase {
+    max-width: 600px;
+}
+
+.ManualArmingModal {
+    .actionsContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+}

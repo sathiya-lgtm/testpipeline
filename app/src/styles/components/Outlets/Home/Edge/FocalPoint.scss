@@ -1,0 +1,11 @@
+.focalIcon {
+    height: 60px;
+    width: 60px;
+
+    path,
+    rect,
+    polygon,
+    circle {
+        fill: rgba(0, 0, 0, 0.75);
+    }
+}

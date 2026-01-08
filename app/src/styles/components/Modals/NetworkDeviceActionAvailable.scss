@@ -1,0 +1,45 @@
+.network-device-action-available-modal {
+    .ModalBase {
+        min-width: 80vw;
+    }
+    .modal-body {
+        overflow: hidden;
+        .tooltip {
+            display: flex;
+            .label-text {
+                color: inherit;
+                margin-bottom: 5px;
+            }
+            .help-icon {
+                margin-left: 5px;
+                fill: white;
+                stroke: none;
+                display: block;
+                width: 14px;
+            }
+        }
+    }
+}
+
+.copy-network-device-action-available-modal {
+    .ModalBase {
+        min-width: 300px;
+    }
+    .modal-body {
+        overflow: hidden;
+        .tooltip {
+            display: flex;
+            .label-text {
+                color: inherit;
+                margin-bottom: 5px;
+            }
+            .help-icon {
+                margin-left: 5px;
+                fill: white;
+                stroke: none;
+                display: block;
+                width: 14px;
+            }
+        }
+    }
+}

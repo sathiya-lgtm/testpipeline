@@ -1,0 +1,70 @@
+.loadingModalBackground {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.fit-inside-parent {
+        position: absolute;
+    }
+
+    &.transparent {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    &.disable-pointer-events {
+        pointer-events: none;
+    }
+
+    .loadingModal {
+        text-align: center;
+
+        p {
+            font-size: 1rem;
+        }
+
+        .companyIcon {
+            width: 6rem;
+            height: 6rem;
+            animation-name: rotation;
+            animation-duration: 8s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(90deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            75% {
+                transform: rotate(270deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .companyIcon path,
+        rect,
+        polygon,
+        circle {
+            fill: rgba(255, 255, 255, 1);
+        }
+    }
+
+    &.lg .companyIcon {
+        width: clamp(3rem, 70%, 8rem);
+        height: auto;
+    }
+}

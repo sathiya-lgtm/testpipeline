@@ -1,0 +1,142 @@
+@use './abstracts/colors' as *;
+
+.tooltip {
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+
+    &::before,
+    &::after {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover::before,
+    &:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &::before {
+        content: attr(data-tooltip);
+        z-index: 10;
+        width: 125px;
+        color: #fff;
+        background: $evolon-blue;
+        box-shadow: rgba(0, 0, 0, 0.15) 2px 3px 4px;
+        border-radius: 3px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+    }
+
+    &.wide::before {
+        width: 200px;
+    }
+
+    &.wide-xl::before {
+        width: 300px;
+    }
+
+    &.top::before,
+    &.top::after {
+        bottom: 100%;
+        left: 50%;
+        transform: translate(-10%);
+        margin-bottom: 15px;
+    }
+
+    &.top::after {
+        margin-bottom: 8px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid $evolon-blue;
+    }
+
+    //special -----
+    &.top-odd::before,
+    &.top-odd::after {
+        bottom: 100%;
+        left: 50%;
+        transform: translate(-75%);
+        margin-bottom: 15px;
+    }
+
+    &.top-odd::after {
+        margin-bottom: 8px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid $evolon-blue;
+    }
+
+    &.bottom::before,
+    &.bottom::after {
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%);
+        margin-top: 15px;
+    }
+
+    &.bottom::after {
+        margin-top: 8px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 7px solid $evolon-blue;
+    }
+
+    //special -------
+    &.bottom-odd::before,
+    &.bottom-odd::after {
+        top: 100%;
+        left: 20%;
+        transform: translate(-50%);
+        margin-top: 15px;
+    }
+
+    &.bottom-odd::after {
+        margin-top: 8px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 7px solid $evolon-blue;
+    }
+
+    &.right::before,
+    &.right::after {
+        top: 50%;
+        left: 100%;
+        transform: translate(0, -50%);
+        margin-left: 15px;
+    }
+
+    &.right::after {
+        margin-left: 8px;
+        border-top: 5px solid transparent;
+        border-right: 7px solid $evolon-blue;
+        border-bottom: 5px solid transparent;
+    }
+
+    &.left::before,
+    &.left::after {
+        top: 50%;
+        right: 100%;
+        transform: translate(0, -50%);
+        margin-right: 15px;
+    }
+
+    &.left::after {
+        margin-right: 8px;
+        border-top: 5px solid transparent;
+        border-left: 7px solid $evolon-blue;
+        border-bottom: 5px solid transparent;
+    }
+}

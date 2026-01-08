@@ -1,0 +1,71 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.RegistrationQueueTableSection {
+    max-width: 1000px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+
+    .siteTable {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+            background: $graphite-light;
+
+            .placeholderHeader {
+                width: 5px;
+                padding: 0;
+                color: $graphite-light;
+            }
+        }
+
+        th {
+            color: $text-secondary;
+            padding: 0.75rem 1.5rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 0.4rem 1.5rem;
+        }
+
+        tbody {
+            tr {
+                cursor: pointer;
+                transition: all 0.3s;
+
+                &:hover {
+                    background: rgba(125, 125, 125, 0.4);
+                }
+            }
+
+            .highlighterPlaceholder {
+                padding: 0;
+            }
+
+            tr.selected {
+                position: relative;
+                background: rgba(125, 125, 125, 0.3);
+
+                .highlighterPlaceholder {
+                    height: 100%;
+                    width: 5px;
+                    background: $highlight-blue;
+                    position: absolute;
+                }
+            }
+        }
+
+        .firstCol {
+            padding-left: 60px;
+        }
+
+        .tableIcon {
+            fill: white;
+            height: 22px;
+            width: 22px;
+            margin-right: 10px;
+        }
+    }
+}

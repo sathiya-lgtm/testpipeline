@@ -1,0 +1,14 @@
+.test-clips {
+    .camera-settings-list {
+        margin-bottom: 2rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1rem;
+
+        .camera-settings-toggle-container {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            gap: 1rem;
+        }
+    }
+}

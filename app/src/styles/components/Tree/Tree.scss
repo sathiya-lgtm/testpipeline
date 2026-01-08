@@ -1,0 +1,395 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.tree-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px auto;
+    border: solid 1pt $slate;
+}
+
+.tree-container-header {
+    display: grid;
+    grid-template-columns: auto auto 150px;
+    grid-template-rows: 50px;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    border-bottom: solid 1pt $slate;
+}
+
+.tree-container-header-caption {
+    padding-left: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.tree-container-header-toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+
+    .tree-node-toolbar-button {
+        cursor: pointer;
+        font-size: 1.4em;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        &:hover {
+            color: $highlight-blue;
+            transition-property: color;
+            transition-duration: 0.5s;
+            transition-delay: 0.1s;
+            transition-timing-function: ease-in-out;
+        }
+    }
+}
+
+.tree-container-header-toggle {
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+    color: white;
+    transition-property: color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    transition-delay: 0.1s;
+    &:hover {
+        transition-property: color;
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+        color: $highlight-blue;
+        transition-timing-function: ease-in-out;
+    }
+    span {
+        margin-right: 10px;
+    }
+
+    svg {
+        margin-right: 10px;
+    }
+}
+
+.toggle-expand-all {
+    svg {
+        transition-property: transform;
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+        transform: rotate(0deg);
+    }
+}
+
+.toggle-collapse-all {
+    svg {
+        transition-property: transform;
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+        transform: rotate(90deg);
+    }
+}
+
+.tree-container-body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    background-color: transparent;
+}
+
+.tree-node {
+    user-select: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 50px auto auto 50px;
+    grid-template-rows: 50px auto;
+    width: 100%;
+    background-color: transparent;
+    transition-property: background-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    transition-delay: 0.1s;
+    &:hover {
+        background-color: $graphite-light;
+        transition-property: background-color;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+
+        .tree-node-toggle {
+            color: $highlight-blue;
+            transition-property: background-color;
+            transition-timing-function: ease-in-out;
+            transition-duration: 0.5s;
+            transition-delay: 0.1s;
+        }
+    }
+}
+
+.tree-node-icon {
+    font-size: 1.4em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    color: $highlight-blue;
+}
+
+.tree-node-caption {
+    padding-left: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    color: white;
+    &:hover {
+        svg {
+            color: $highlight-blue;
+            display: inherit;
+        }
+    }
+    svg {
+        cursor: pointer;
+        color: white;
+        margin-left: 5px;
+        font-size: 1.2em;
+    }
+}
+
+.tree-node-toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+}
+
+.tree-node-toolbar-button {
+    cursor: pointer;
+    font-size: 1.4em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    &:hover {
+        color: $highlight-blue;
+        transition-property: color;
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+        transition-timing-function: ease-in-out;
+    }
+}
+
+.tree-node-toggle {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+    grid-column: 4 / 5;
+    &:hover {
+        color: $highlight-blue;
+        transition-property: background-color;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+    }
+}
+
+.tree-node-content {
+    margin-left: 50px;
+    width: calc(100% - 50px);
+    grid-row: 2 / 3;
+    grid-column: 1 / 5;
+}
+
+.toolbar-multi-select-button {
+    user-select: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+
+    .toolbar-multi-select-button-options {
+        display: flex;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        .toolbar-multi-select-button-option {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: auto;
+            color: white;
+
+            .toolbar-multi-select-button-option-icon {
+                display: none;
+            }
+
+            .toolbar-multi-select-button-option-label {
+                display: none;
+            }
+        }
+
+        .toolbar-multi-select-button-option-active {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: auto;
+            color: white;
+
+          .toolbar-multi-select-button-option-icon {
+                margin-right: 5px;
+                position: relative;
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: center;
+                height: 30px;
+                width: 30px;
+                color: white;
+                background-color: $highlight-blue;
+                border-radius: 5px;
+                svg {
+                    font-size: 1.2em;
+                }
+                &:hover {
+                    padding: 5px;
+                    border-radius: 5px;
+                    width: auto;
+                    .toolbar-multi-select-button-option-label {
+                        transition-property: width, font-size;
+                        transition-duration: 0.5s;
+                        transition-delay: 0.1s;
+                        transition-timing-function: ease-in-out;
+                        font-size: 100%;
+                        width: auto;
+                        padding: 5px;
+                        color: white;
+                        background-color: $highlight-blue;
+                        margin-right: 10px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            .toolbar-multi-select-button-option-label {
+                width: 0px;
+                font-size: 0px;
+            }
+        }
+    }
+
+    .toolbar-multi-select-button-icon {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        &:hover {
+            cursor: pointer;
+            color: $highlight-blue;
+        }
+    }
+}
+
+.toolbar-multi-select-button-expanded {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+
+    .toolbar-multi-select-button-options {
+        display: flex;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        .toolbar-multi-select-button-option {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-end;
+
+            .toolbar-multi-select-button-option-icon {
+                display: none;
+            }
+
+            .toolbar-multi-select-button-option-label {
+                border-radius: 5px;
+                margin: 5px;
+                padding: 10px;
+                display: flex;
+                flex-flow: nowrap;
+                align-items: center;
+                justify-content: center;
+                background-color: $charcoal;
+            }
+        }
+
+        .toolbar-multi-select-button-option-active {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-end;
+
+            .toolbar-multi-select-button-option-icon {
+                display: none;
+            }
+
+            .toolbar-multi-select-button-option-label {
+                border-radius: 5px;
+                margin: 5px;
+                padding: 10px;
+                display: flex;
+                flex-flow: nowrap;
+                align-items: center;
+                justify-content: center;
+                background-color: $evolon-green;
+            }
+        }
+    }
+
+    .toolbar-multi-select-button-icon {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: white;
+    }
+}

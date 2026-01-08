@@ -1,0 +1,11 @@
+@use '../../abstracts/colors' as *;
+
+.CreateScheduleTemplateModalBase {
+    max-width: 500px;
+}
+
+.CreateScheduleTemplateModal {
+    .templateNameContainer {
+        margin-bottom: 2rem;
+    }
+}

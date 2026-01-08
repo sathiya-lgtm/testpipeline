@@ -1,0 +1,57 @@
+@use '../../../styles/abstracts/colors' as *;
+@use 'sass:color';
+
+.tab-panel {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.tab-panel-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: solid 2pt color.adjust($charcoal, $lightness: 5%);
+}
+
+.tab-panel-button-label {
+    margin: 10px;
+}
+
+.tab-panel-button {
+    cursor: pointer;
+    height: 38px;
+    margin-left: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: $charcoal;
+    border-bottom: solid 1pt $charcoal;
+    transition-property: border-bottom, background-color;
+    transition-delay: 0.1s;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    &:hover {
+        background-color: $highlight-blue;
+        transition-property: border-bottom, background-color;
+        transition-delay: 0.1s;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in-out;
+    }
+}
+
+.tab-selected {
+    transition-property: border-bottom;
+    transition-delay: 0.2s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    border-bottom: solid 2pt $highlight-blue;
+}
+
+.tab-panel-content {
+    padding: 20px;
+}

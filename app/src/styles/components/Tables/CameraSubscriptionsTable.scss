@@ -1,0 +1,124 @@
+@use '../../../styles/abstracts/colors' as *;
+
+.cameraSubscriptionTable {
+    margin-bottom: 1.5rem;
+
+    .tableHeader {
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr);
+        gap: 1rem;
+        margin-bottom: 0.8rem;
+
+        .subscriptionTitles {
+            display: grid;
+            grid-template-columns: 125px 125px 125px 125px;
+
+            span {
+                text-align: center;
+            }
+        }
+    }
+
+    .tableRow {
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr);
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .radioGroupTest {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: grid;
+        grid-template-columns: 125px 125px 125px 125px;
+
+        .radioBtnContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radioBtn {
+            margin-left: 30px;
+            margin-right: 30px;
+            display: inline-block;
+
+            input[type='radio'] {
+                display: none;
+            }
+
+            label {
+                cursor: pointer;
+                position: relative;
+                font-size: 1rem;
+                height: 0.75rem;
+                display: inline-block;
+            }
+
+            label::before {
+                content: '';
+                position: absolute;
+                width: 1rem;
+                height: 1rem;
+                left: -0.5rem;
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: border-color 400ms ease-in;
+            }
+
+            label::after {
+                content: '';
+                position: absolute;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                top: 50%;
+                left: -0.5rem;
+                transform: translateY(-50%) scale(0);
+                transition: transform 600ms ease;
+            }
+
+            &.primary {
+                label::before {
+                    border: 2px solid $highlight-blue;
+                    background-color: transparent;
+                }
+
+                label::after {
+                    background-color: $highlight-blue;
+                    border: 2px solid $highlight-blue;
+                }
+            }
+
+            &.secondary {
+                label::before {
+                    border: 2px solid $steel;
+                    background-color: rgb(106, 115, 123, 0.5);
+                }
+
+                label::after {
+                    background-color: $steel;
+                    border: 2px solid $steel;
+                }
+            }
+
+            input[type='radio']:checked + label::after {
+                transform: translateY(-50%) scale(1);
+            }
+        }
+
+        .disabled {
+            &.primary {
+                label::before {
+                    opacity: 0.1;
+                }
+
+                label::after {
+                    opacity: 0.1;
+                }
+            }
+        }
+    }
+}

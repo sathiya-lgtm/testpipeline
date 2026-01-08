@@ -1,0 +1,195 @@
+@use '../../../../abstracts/colors' as *;
+
+.advancedSettingsModal {
+    margin-top: 1rem;
+    max-width: 600px;
+
+    .toggleContainer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .Toggle {
+            margin: 0;
+        }
+
+        .label {
+            margin-right: 15px;
+            opacity: 0.7;
+            min-width: 225px;
+        }
+    }
+
+    .radioContainer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .label {
+            margin-right: 15px;
+            opacity: 0.7;
+        }
+    }
+
+    .inputContainer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        .labelWrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input {
+            max-width: 235px;
+        }
+
+        .label {
+            margin-right: 15px;
+            opacity: 0.7;
+            min-width: 225px;
+        }
+    }
+
+    .selectContainer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        .label {
+            min-width: 180px;
+            margin-right: 15px;
+            opacity: 0.7;
+        }
+
+        .selectWrapper {
+            width: 100%;
+            max-width: 280px;
+        }
+    }
+
+    .sliderContainer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        .label {
+            min-width: 180px;
+            margin-right: 15px;
+            opacity: 0.7;
+        }
+
+        .slider-container {
+            max-width: 280px;
+            position: relative;
+
+            .sliding-number {
+                top: 10px;
+            }
+        }
+    }
+
+    .confidence-threshold {
+        max-width: 476px;
+
+        .tooltip {
+            &.wide-xl::before {
+                width: 300px;
+            }
+        }
+
+        .label {
+            opacity: 0.7;
+        }
+
+        .subtext-container {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            > span {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            > span:nth-of-type(1) {
+                gap: 10px;
+                justify-content: flex-start;
+            }
+
+            > span:nth-of-type(2) {
+                justify-content: space-around;
+            }
+
+            .Toggle {
+                margin-left: 50px;
+            }
+
+            .icon.person {
+                width: clamp(10px, 10%, 15px);
+            }
+
+            .icon.vehicle {
+                width: clamp(10px, 15%, 20px);
+            }
+        }
+
+        .subtext {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .subtext.percentage {
+            color: $text-secondary;
+            min-width: 40px;
+        }
+
+        .subtext.title {
+            color: $offWhite;
+        }
+
+        .disabled {
+            opacity: 0.5;
+
+            &:hover::before {
+                display: none;
+            }
+
+            & > * {
+                pointer-events: none;
+            }
+
+            & input {
+                color: $steel;
+                --track-color: #5c5c5c;
+            }
+            & p.subtext.percentage {
+                opacity: 0;
+            } //Immix request to applied to all disabled
+
+            &.text {
+                &:hover::after {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    padding: 25px;
+                    border-radius: 4px;
+                    background-color: rgb(0, 0, 0);
+                }
+            }
+        }
+    }
+
+    .buttonsContainer {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
