@@ -14,8 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print Hello Message
-        run: echo "Hello GitHub Actions workflow is running"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-      - name: List files
-        run: ls -la
+      - name: Give execute permission to script
+        run: chmod +x install_npm.sh
+
+      - name: Run npm install script
+        run: ./install_npm.sh
