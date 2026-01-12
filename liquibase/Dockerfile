@@ -1,14 +1,13 @@
-# liquibase/Dockerfile
 FROM liquibase/liquibase:latest
 
 WORKDIR /liquibase
 
-# Copy Liquibase config
+# Copy Liquibase configuration
 COPY changelog.xml .
 COPY liquibase.properties .
 
-# Copy your SQL scripts folder
+# Copy the SQL scripts folder from project root (sampel/)
 COPY ../sampel /liquibase/sampel
 
-# Run Liquibase update on container startup
+# Run Liquibase update automatically
 CMD ["liquibase", "update"]
