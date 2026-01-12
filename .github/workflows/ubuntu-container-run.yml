@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-python:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     container:
       image: ubuntu:latest   # Ubuntu latest container
