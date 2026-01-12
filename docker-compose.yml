@@ -25,7 +25,7 @@ services:
       LIQUIBASE_USERNAME: postgres
       LIQUIBASE_PASSWORD: postgres
     volumes:
-      - ./sampel:/liquibase/sampel
+      - ./sample:/liquibase/sample
 
 volumes:
   postgres_data:
