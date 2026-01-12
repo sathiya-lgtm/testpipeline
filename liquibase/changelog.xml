@@ -1,0 +1,18 @@
+<!-- liquibase/changelog.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+       http://www.liquibase.org/xml/ns/dbchangelog
+       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <changeSet id="1" author="sathiya">
+        <sqlFile
+            path="/liquibase/sampel/liquibase_sample_sql_scripts.sql"
+            relativeToChangelogFile="false"
+            splitStatements="true"
+            stripComments="true"/>
+    </changeSet>
+
+</databaseChangeLog>
