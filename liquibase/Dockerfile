@@ -1,8 +1,9 @@
-FROM liquibase/liquibase:4.23
+FROM liquibase/liquibase:4.27
 
 WORKDIR /liquibase
 
-COPY changelog.xml /liquibase/changelog.xml
-COPY liquibase.properties /liquibase/liquibase.properties
+COPY liquibase.properties .
+COPY changelog.xml .
+COPY ../sampel ./sampel
 
-CMD ["liquibase", "update"]
+CMD ["liquibase", "--log-level=INFO", "update"]

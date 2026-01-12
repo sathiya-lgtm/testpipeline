@@ -1,6 +1,6 @@
-#Create scripts :
-#================
-CREATE TABLE users (
+-- Create scripts
+
+CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(150)
@@ -13,7 +13,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-
 CREATE OR REPLACE PROCEDURE insert_user(p_name VARCHAR, p_email VARCHAR)
 LANGUAGE plpgsql
 AS $$
@@ -23,22 +22,16 @@ BEGIN
 END;
 $$;
 
-CREATE TABLE employee (
+CREATE TABLE IF NOT EXISTS employee (
     id SERIAL PRIMARY KEY,
     name TEXT,
     salary NUMERIC
 );
 
+-- Modify scripts
 
-
-#Modify Scripts:
-#===============
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(150),
-    status VARCHAR(20) DEFAULT 'ACTIVE'
-);
+ALTER TABLE users
+ADD COLUMN IF NOT EXISTS status VARCHAR(20) DEFAULT 'ACTIVE';
 
 CREATE OR REPLACE FUNCTION get_user_count()
 RETURNS INTEGER AS $$
