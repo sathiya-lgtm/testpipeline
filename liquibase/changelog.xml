@@ -8,8 +8,8 @@
 
     <changeSet id="1" author="sathiya">
         <sqlFile
-            path="sampel/liquibase_sample_sql_scripts.sql"
-            relativeToChangelogFile="true"/>
+            path="/liquibase/sampel/liquibase_sample_sql_scripts.sql"
+            relativeToChangelogFile="false"/>
     </changeSet>
 
 </databaseChangeLog>
