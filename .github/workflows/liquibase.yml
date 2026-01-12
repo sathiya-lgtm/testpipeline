@@ -28,8 +28,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Docker Compose
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Build and run Docker Compose
-        run: docker-compose up --build --abort-on-container-exit
+      - name: Build and run containers
+        run: docker compose up --build --abort-on-container-exit
+
+      - name: Verify Postgres tables
+        run: |
+          docker exec $(docker ps -qf "name=sample_postgres") \
+            psql -U postgres -d sampledb -c "\dt"
+          docker exec $(docker ps -qf "name=sample_postgres") \
+            psql -U postgres -d sampledb -c "SELECT COUNT(*) FROM users;"
