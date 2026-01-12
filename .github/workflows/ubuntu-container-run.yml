@@ -1,0 +1,39 @@
+name: Run Python Files in Ubuntu Container
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run-python:
+    runs-on: self-hosted
+
+    container:
+      image: ubuntu:latest   # ✅ Ubuntu latest container
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update apt & install python
+        run: |
+          apt-get update
+          apt-get install -y python3
+
+      - name: Verify python version
+        run: python3 --version
+
+      - name: List files copied into container
+        run: ls -R .
+
+      - name: Run python1.py
+        run: python3 scripts/python1.py
+
+      - name: Run python2.py
+        run: python3 scripts/python2.py
+
+      - name: Run python3.py
+        run: python3 scripts/python3.py
+
+      - name: Final success message
+        run: echo "✅ All Python scripts executed successfully in Ubuntu container"
