@@ -1,13 +1,8 @@
-FROM liquibase/liquibase:latest
+FROM liquibase/liquibase:4.23
 
 WORKDIR /liquibase
 
-# Copy Liquibase config
-COPY changelog.xml .
-COPY liquibase.properties .
+COPY changelog.xml /liquibase/changelog.xml
+COPY liquibase.properties /liquibase/liquibase.properties
 
-# Copy SQL scripts folder from project root
-COPY ./sampel /liquibase/sampel
-
-# Run Liquibase on container start
 CMD ["liquibase", "update"]
