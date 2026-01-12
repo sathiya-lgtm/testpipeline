@@ -2,8 +2,7 @@ FROM liquibase/liquibase:4.27
 
 WORKDIR /liquibase
 
-COPY liquibase.properties .
 COPY changelog.xml .
-COPY ../sampel ./sampel
+COPY liquibase.properties .
 
 CMD ["liquibase", "--log-level=INFO", "update"]
