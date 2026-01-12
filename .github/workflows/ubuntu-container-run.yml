@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted
 
     container:
-      image: ubuntu:latest   # ✅ Ubuntu latest container
+      image: ubuntu:latest   # Ubuntu latest container
 
     steps:
       - name: Checkout repository
@@ -36,4 +36,4 @@ jobs:
         run: python3 scripts/python3.py
 
       - name: Final success message
-        run: echo "✅ All Python scripts executed successfully in Ubuntu container"
+        run: echo "All Python scripts executed successfully in Ubuntu container"
