@@ -26,8 +26,8 @@ jobs:
             sleep 5
           done
 
-      - name: Run Liquibase update
-        run: docker exec sample_liquibase liquibase update
+      - name: Start containers
+        run: docker compose up --build --abort-on-container-exit
 
       - name: Verify Postgres tables
         run: |
