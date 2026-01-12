@@ -1,31 +1,13 @@
-version: '3.9'
-
-services:
-  postgres:
-    image: postgres:15
-    container_name: sample_postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: sampledb
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  liquibase:
-    build:
-      context: ./liquibase
-      dockerfile: Dockerfile
-    container_name: sample_liquibase
-    depends_on:
-      - postgres
-    environment:
-      LIQUIBASE_URL: jdbc:postgresql://postgres:5432/sampledb
-      LIQUIBASE_USERNAME: postgres
-      LIQUIBASE_PASSWORD: postgres
-    volumes:
-      - ./sampel:/liquibase/sampel
-
-volumes:
-  postgres_data:
+liquibase:
+  build:
+    context: .    # Project root as build context
+    dockerfile: liquibase/Dockerfile
+  container_name: sample_liquibase
+  depends_on:
+    - postgres
+  environment:
+    LIQUIBASE_URL: jdbc:postgresql://postgres:5432/sampledb
+    LIQUIBASE_USERNAME: postgres
+    LIQUIBASE_PASSWORD: postgres
+  volumes:
+    - ./sampel:/liquibase/sampel  # optional for dev

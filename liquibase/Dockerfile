@@ -2,12 +2,12 @@ FROM liquibase/liquibase:latest
 
 WORKDIR /liquibase
 
-# Copy Liquibase configuration
+# Copy Liquibase config
 COPY changelog.xml .
 COPY liquibase.properties .
 
-# Copy the SQL scripts folder from project root (sampel/)
-COPY ../sampel /liquibase/sampel
+# Copy SQL scripts folder from project root
+COPY ./sampel /liquibase/sampel
 
-# Run Liquibase update automatically
+# Run Liquibase on container start
 CMD ["liquibase", "update"]
