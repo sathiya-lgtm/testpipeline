@@ -13,23 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Go to project root and start containers
-        run: |
-          cd project-root
-          docker compose up -d --build
+      # Connect GitHub runner to Tailscale
+      - name: Setup Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTH_KEY }}
 
-      - name: Wait for DB
-        run: sleep 15
+      # Build Liquibase Docker image
+      - name: Build Liquibase Docker
+        run: docker build -t liquibase-run .
 
-      - name: Verify Liquibase files
-        run: |
-          docker exec sample_liquibase ls -l /liquibase/sample
-
-      - name: Verify Postgres tables
-        run: |
-          docker exec sample_postgres psql -U postgres -d sampledb -c "\dt"
-
-      - name: Tear down
-        run: |
-          cd project-root
-          docker compose down
+      # Run Liquibase (connects to remote Postgres)
+      - name: Run Liquibase
+        run: docker run --rm liquibase-run
