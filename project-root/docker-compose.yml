@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: sample_postgres
+    environment:
+      POSTGRES_DB: sampledb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  liquibase:
+    build: .
+    container_name: sample_liquibase
+    depends_on:
+      - postgres

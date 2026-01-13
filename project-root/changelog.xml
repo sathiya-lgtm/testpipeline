@@ -4,12 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
       http://www.liquibase.org/xml/ns/dbchangelog
-      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.27.xsd">
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
 
     <changeSet id="1" author="sathiya">
         <sqlFile
             path="liquibase_sample_sql_scripts.sql"
-            searchPath="/liquibase/sample"/>
+            relativeToChangelogFile="true"/>
     </changeSet>
 
 </databaseChangeLog>
