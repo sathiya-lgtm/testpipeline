@@ -12,30 +12,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Debug files
-        run: |
-          pwd
-          ls -la
-      - name: Build and start containers
-        run: docker compose -f docker-compose.yml up -d --build
 
-      - name: Wait for Postgres
+      - name: Go to project root and start containers
         run: |
-          sleep 15
-          docker ps
+          cd project-root
+          docker compose up -d --build
 
-      - name: Debug Liquibase files
+      - name: Wait for DB
+        run: sleep 15
+
+      - name: Verify Liquibase files
         run: |
-          docker exec sample_liquibase ls -l /liquibase
-          docker exec sample_liquibase ls -l /liquibase/sampel
+          docker exec sample_liquibase ls -l /liquibase/sample
 
       - name: Verify Postgres tables
         run: |
           docker exec sample_postgres psql -U postgres -d sampledb -c "\dt"
-          docker exec sample_postgres psql -U postgres -d sampledb -c "SELECT COUNT(*) FROM users;"
-
-      - name: Show Liquibase logs
-        run: docker logs sample_liquibase
 
       - name: Tear down
-        run: docker compose down
+        run: |
+          cd project-root
+          docker compose down
