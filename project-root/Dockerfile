@@ -2,13 +2,11 @@ FROM liquibase/liquibase:latest
 
 WORKDIR /liquibase
 
-# Copy ONLY the sampel folder
-COPY sampel /liquibase/sampel
+COPY sample /liquibase/sample
 
-# Run Liquibase on container start
 CMD ["liquibase",
-     "--changeLogFile=sampel/changelog.xml",
-     "--url=jdbc:postgresql://db:5432/mydb",
+     "--changeLogFile=sample/changelog.xml",
+     "--url=jdbc:postgresql://postgres:5432/sampledb",
      "--username=postgres",
      "--password=postgres",
      "update"]
