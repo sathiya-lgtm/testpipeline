@@ -13,8 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Start containers
-        run: docker compose up --build --abort-on-container-exit
+      - name: Build and start containers
+        run: docker compose up -d --build
+
+      - name: Wait for Postgres
+        run: |
+          sleep 15
+          docker ps
 
       - name: Debug Liquibase files
         run: |
@@ -25,6 +30,9 @@ jobs:
         run: |
           docker exec sample_postgres psql -U postgres -d sampledb -c "\dt"
           docker exec sample_postgres psql -U postgres -d sampledb -c "SELECT COUNT(*) FROM users;"
+
+      - name: Show Liquibase logs
+        run: docker logs sample_liquibase
 
       - name: Tear down
         run: docker compose down
