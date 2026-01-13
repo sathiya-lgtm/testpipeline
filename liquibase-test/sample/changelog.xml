@@ -9,7 +9,9 @@
     <changeSet id="1" author="sathiya">
         <sqlFile
             path="liquibase_sample_sql_scripts.sql"
-            relativeToChangelogFile="true"/>
+            relativeToChangelogFile="true"
+            splitStatements="true"
+            stripComments="true"/>
     </changeSet>
 
 </databaseChangeLog>
